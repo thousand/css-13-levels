@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-US" class="un-ready">
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS in 13 Levels — Intro</title>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Highlight.js Sources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
+  <!-- needs to be after to highlight.js to override styles -->
+  <link rel="stylesheet" href="lib/slide-layout-main.css">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+      // grab slide markup and clone its text into the display element
+      let slideContentEl = document.getElementById('slide-content');
+      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
+      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+
+      let slideStyleEl = document.getElementById('slide-style');
+      let slideStyleDisplayEl = document.getElementById('slide-style-display');
+      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
+
+      hljs.configure({
+        cssSelector: '[data-code-display]',
+        ignoreUnescapedHTML: true,
+      });
+      hljs.highlightAll();
+      document.documentElement.classList.remove('un-ready');
+    });
+  </script>
+</head>
+<body>
+
+<style type="text/css" id="slide-style">
+  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira&display=swap');
+  body {
+    color: #eee;
+    background-color: #2d2d2d;
+    text-align: center;
+    font-family: 'Saira';
+  }
+  .title {
+    font-size: 3em;
+    font-family: 'Kelly Slab';
+    color: cornflowerblue;
+    text-shadow: 0 0.1em 0.1em #000;
+  }
+  .presenter p {
+    margin: 0;
+  }
+  p.presenter-name {
+    font-family: 'Kelly Slab';
+    font-size: 2em;
+    margin: 1em;
+  }
+  p.presenter-meta {
+    font-size: 1em;
+  }
+  
+  /* layout hackery */
+  body {
+    grid-template-rows: 1fr 3fr;
+  }
+  code[data-code-display] {
+    font-size: 0.7rem;
+  }
+</style>
+
+<div id="slide-fake-body"></div>
+<main id="slide-content">
+  <header>
+    <h1 class="title">CSS in 13 Levels</h1>
+  </header>
+  
+  <section class="presenter">
+    <p class="presenter-name">Bryan Levay</p>
+    <p class="presenter-meta">Sr. Staff SWE at LinkedIn</p>
+    <p class="presenter-meta">Tech Lead for Horizontal UX &amp; a11y Engineering</p>
+  </section>
+  
+</main>
+
+<code id="slide-style-display" class="language-css" data-code-display></code>
+<code id="slide-markup-display" class="language-html" data-code-display></code>
+<!-- remove live-reload code for "prod" -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>
