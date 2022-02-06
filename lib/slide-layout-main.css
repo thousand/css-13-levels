@@ -28,6 +28,8 @@ code[data-code-display] {
   padding: 1rem;
   text-align: initial;
   overflow: hidden auto;
+  border-radius: 1rem;
+  background-color: #222c;
 }
 
 /* fade in code after it's been injected and highlighted */
@@ -53,10 +55,10 @@ code[data-code-display]::after {
   grid-area: html;
 } 
 #slide-markup-display::before {
-  content: "<body id=\"slide-content\">"
+  content: "<main id=\"slide-content\">"
 }
 #slide-markup-display::after {
-  content: "</body>"
+  content: "</main>"
 }
 /* END Code previews */
 
@@ -67,13 +69,15 @@ code[data-code-display]::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #000;
+  background: #222;
   z-index: -1;
+  background-image: url('./bg-pattern.svg')
 }
 #slide-content {
   grid-area: result;
   padding: 1rem;
   color: inherit;
   background-color: inherit;
+  border-radius: 1rem;
 }
   
