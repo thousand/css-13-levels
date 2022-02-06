@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — $TITLE</title>
+  <title>CSS in 13 Levels — Intro 1</title>
 
+  <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
@@ -39,29 +40,52 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  /* Nothing here! */
+  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
+  body {
+    color: #eee;
+    background-color: #222c;
+    text-align: center;
+    font-family: 'Saira';
+    --color-1: hsla(196, 88%, 66%, 1); 
+    --color-2: hsla(340, 88%, 66%, 1); 
+  }
+  .title {
+    font-size: 4rem;
+    font-family: 'Kelly Slab';
+    color: var(--color-2);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--color-1);
+    font-weight: 700;
+  }
+
+  /* layout hackery */
+  body {
+    grid-template-rows: 2fr 3fr;
+  }
+  code[data-code-display] {
+    font-size: 0.7rem;
+  }
 </style>
 
-<section id="slide-content">
-  <h1>Level 0</h1>
-  <p>
-    This is some <em>lovely</em> content. It might be bland 
-    without styling, but it comes with some nice <strong>structure</strong>.
-  </p>
+<main id="slide-content">
+  <h1 class="title">Tech Lead at LinkedIn</h1> 
   <ul>
-    <li>Structure is good for a11y</li>
-    <li>Good structure gives you a good baseline for styling</li>
-    <li>
-      If your site looks reasonable without CSS,
-      you can reasonably trust that other developers
-      won't judge you when viewing the source
-    </li>
+    <li>Horizontal UI Engineering</li>
+    <li>a11y Engineering</li>
   </ul>
-</section>
+  
+</main>
 
-
+<div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
+<a href="./index.html" id="prev-slide">prev</a>
+<a href="./slides/intro-02.html" id="next-slide">next</a>
+
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 

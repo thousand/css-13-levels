@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-US" class="un-ready">
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS in 13 Levels — Intro</title>
+
+  <base href="../">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Highlight.js Sources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
+  <!-- needs to be after to highlight.js to override styles -->
+  <link rel="stylesheet" href="lib/slide-layout-main.css">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+      // grab slide markup and clone its text into the display element
+      let slideContentEl = document.getElementById('slide-content');
+      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
+      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+
+      let slideStyleEl = document.getElementById('slide-style');
+      let slideStyleDisplayEl = document.getElementById('slide-style-display');
+      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
+
+      hljs.configure({
+        cssSelector: '[data-code-display]',
+        ignoreUnescapedHTML: true,
+      });
+      hljs.highlightAll();
+      document.documentElement.classList.remove('un-ready');
+    });
+  </script>
+</head>
+<body>
+
+<style type="text/css" id="slide-style">
+  /* Nothing here! */
+</style>
+
+<section id="slide-content">
+  <h1>Level 0</h1>
+  <p>
+    This is some <em>lovely</em> content. It might be bland 
+    without styling, but it comes with some nice <strong>structure</strong>.
+  </p>
+  <ul>
+    <li>Structure is good for a11y</li>
+    <li>Good structure gives you a good baseline for styling</li>
+    <li>
+      If your site looks reasonable without CSS,
+      you can reasonably trust that other developers
+      won't judge you when viewing the source
+    </li>
+  </ul>
+</section>
+
+
+<code id="slide-style-display" class="language-css" data-code-display></code>
+<code id="slide-markup-display" class="language-html" data-code-display></code>
+<!-- remove live-reload code for "prod" -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>

@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Title Card</title>
+  <title>CSS in 13 Levels — Intro 4</title>
 
+  <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
@@ -49,77 +50,21 @@
     --color-2: hsla(340, 88%, 66%, 1); 
   }
   .title {
-    font-size: 10vmin;
+    font-size: 4rem;
     font-family: 'Kelly Slab';
     color: var(--color-2);
-    text-shadow: 
-      1px 1px 0px hsla(196, 88%, 66%, 0.7),
-      2px 2px 0px hsla(196, 88%, 66%, 0.6),
-      3px 3px 0px hsla(196, 88%, 66%, 0.5),
-      4px 4px 0px hsla(196, 88%, 66%, 0.4),
-      5px 5px 0px hsla(196, 88%, 66%, 0.3),
-      6px 6px 0px hsla(196, 88%, 66%, 0.2),
-      7px 7px 0px hsla(196, 88%, 66%, 0.1)
-    ;
-    margin: 1em 0;
   }
-  .presenter {
-    margin: 10vmin 0;
-  }
-  .presenter p {
-    margin: 0;
-  }
-  p.presenter-name {
-    font-size: 5vmin;
-    font-weight: 900;
-    color: var(--color-1);
-    text-shadow: 0 0.1em 0.1em #0008;
-    margin: 0.3em;
-  }
-  p.presenter-meta {
-    font-size: 2vmin;
-    font-weight: 100;
-  }
-
-  ul.links {
+  ul {
     list-style: none;
-    font-size: 1.5vmin;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    padding: 0;
-  }
-  ul.links li {
-    display: inline-block;
-    flex: 1 1 33%;
     margin: 0;
-  }
-  ul.links li.this-prezo {
-    display: block;
-    flex: 0 1 100%;
-    margin: 1rem 0;
-  }
-
-  ul.links a {
-    color: var(--color-1); 
+    padding: 0;
+    color: var(--color-1);
     font-weight: 700;
-    text-decoration: none;
-  }
-  ul.links a::after {
-    content: "\A" attr(href);
-    white-space: pre-line;
-    color: #fff;
-    font-weight: 100;
-
-    font-size: 0.8em;
   }
 
-  
   /* layout hackery */
   body {
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 2fr 3fr;
   }
   code[data-code-display] {
     font-size: 0.7rem;
@@ -127,27 +72,17 @@
 </style>
 
 <main id="slide-content">
-  <header>
-    <h1 class="title">CSS in 13 Levels</h1>
-  </header>
-  
-  <section class="presenter">
-    <p class="presenter-name">Bryan Levay</p>
-    <p class="presenter-meta">Sr. Staff SWE at LinkedIn</p>
-  </section>
-  
-  <ul class="links">
-    <li class="this-prezo"><a href="https://github.com/thousand/css-13-levels">Presentation Source</a></li>
-    <li><a href="https://linkedin.com/in/bryanlevay">LinkedIn</a></li>
-    <li><a href="https://twitter.com/thousand">Twitter</a></li>
-    <li><a href="https://github.com/thousand">Github</a></li>
+  <h1 class="title">Why am I Talking About CSS?</h1> 
+  <ul>
+    <li>Love</li>
   </ul>
 </main>
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-01.html" id="next-slide">next</a>
+<a href="./slides/intro-03.html" id="prev-slide">prev</a>
+<a href="./slides/intro-05.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

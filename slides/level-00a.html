@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <title>CSS in 13 Levels — Level 0</title>
 
+  <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
 
   <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
   <!-- needs to be after to highlight.js to override styles -->
@@ -60,9 +61,12 @@
 </section>
 
 
+<div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<!-- remove live-reload code for "prod" -->
+<a href="./slides/intro-05.html" id="prev-slide">prev</a>
+<a href="./slides/level-00a.html" id="next-slide">next</a><!-- remove live-reload code for "prod" -->
+
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
 </body>
