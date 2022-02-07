@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Intro 5</title>
+  <title>CSS in 13 Levels — Level 1</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,50 +40,85 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
-  body {
-    color: #eee;
-    background-color: #222c;
-    text-align: center;
-    font-family: 'Saira';
-    --color-1: hsla(196, 88%, 66%, 1); 
-    --color-2: hsla(340, 88%, 66%, 1); 
+  .important {
+    color: hsla(196, 88%, 66%, 1);
   }
-  .title {
-    font-size: 4rem;
-    font-family: 'Kelly Slab';
-    color: var(--color-2);
-  }
-  ul {
+  .horizontal-list {
+    display: flex;
+    margin: 1rem 0;
+    padding: 0.5rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    color: var(--color-1);
-    font-weight: 700;
+    background: #000;
+  }
+  .horizontal-list-item {
+    flex: 1 1 auto;
+    padding: 0.5rem;
+    background-clip: content-box;
+    background: #222;
+  }
+  .horizontal-list-item.important {
+    background-color: hsla(196, 88%, 16%, 1);
+    color: #fff;
   }
 
-  /* layout hackery */
-  body {
-    grid-template-rows: 2fr 3fr;
+  .important .important {
+    color: hsla(340, 88%, 66%, 1);
   }
-  code[data-code-display] {
-    font-size: 0.7rem;
+  .horizontal-list .horizontal-list {
+    margin: 0;
+    padding: 0.5rem;
+    background: #444;
+    font-size: 1rem;
+  }
+  .horizontal-list .horizontal-list .important {
+    font-weight: bold;
+  }
+  /* moved (: */
+  body {
+    color: #fff;
+    background: #222;
+    font-family: "Helvetica Neue", Arial, sans-serif
+  }
+  .slide-title {
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+  }
+  .slide-subtitle {
+    font-size: 1.3rem;
+    line-height: 1;
   }
 </style>
 
-<main id="slide-content">
-  <h1 class="title">Why am I Talking About CSS?</h1> 
+<section id="slide-content">
+  <h1 class="slide-title">
+    Level 2 <br>
+    <span class="slide-subtitle">Flavors &amp; Relationships</span>
+  </h1>
+
   <ul>
-    <li>Expresses Design</li>
-    <li>Levels as I have learned them</li>
+    <li>Separate styling from markup</li>
   </ul>
-</main>
+  <ul class="horizontal-list">
+    <li class="horizontal-list-item important">
+      Layer <span class="important">visual</span> semantics
+    </li>
+    <li class="horizontal-list-item">
+      <ul class="horizontal-list">
+        <li class="horizontal-list-item">
+          <span class="important">define what happens</span> when things nest
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+  
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-05.html" id="prev-slide">prev</a>
-<a href="./slides/level-00a.html" id="next-slide">next</a>
+<a href="./slides/level-02b.html" id="prev-slide">prev</a>
+<a href="./slides/level-03b.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

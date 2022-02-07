@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Intro</title>
+  <title>CSS in 13 Levels — Level 1</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,29 +40,56 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  /* Nothing here! */
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  ul li {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    flex: 1 1 auto;
+    border: 1px solid #777;
+  }
+  blockquote {
+    border-left: 3px solid #777;
+    margin: 0.5rem;
+    padding: 1rem;
+    background: #000;
+  }
+
+  /* moved code */
+  body {
+    color: #fff;
+    background: #222;
+    font-family: "Helvetica Neue", Arial, sans-serif
+  }
+  h1 {
+    font-size: 3rem;
+  }
+
 </style>
 
 <section id="slide-content">
-  <h1>Level 0</h1>
+  <h1>Level 1 &mdash; The Bare Minimum</h1>
   <p>
-    This is some <em>lovely</em> content. It might be bland 
-    without styling, but it comes with some nice <strong>structure</strong>.
+    Lots of stuff to do with information architecture and layout
   </p>
   <ul>
-    <li>Structure is good for a11y</li>
-    <li>Good structure gives you a good baseline for styling</li>
-    <li>
-      If your site looks reasonable without CSS,
-      you can reasonably trust that other developers
-      won't judge you when viewing the source
-    </li>
+    <li>Many ways to change layout</li>
+    <li>Adding "presentational semantics"</li>
   </ul>
+  <blockquote>Adding richness to content</blockquote>
 </section>
+  
 
-
+<div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
+<a href="./slides/level-01b.html" id="prev-slide">prev</a>
+<a href="./slides/level-02a.html" id="next-slide">next</a>
+
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 

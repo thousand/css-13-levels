@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Intro 5</title>
+  <title>CSS in 13 Levels — Level 2</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,50 +40,46 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
   body {
-    color: #eee;
-    background-color: #222c;
-    text-align: center;
-    font-family: 'Saira';
-    --color-1: hsla(196, 88%, 66%, 1); 
-    --color-2: hsla(340, 88%, 66%, 1); 
-  }
-  .title {
-    font-size: 4rem;
-    font-family: 'Kelly Slab';
-    color: var(--color-2);
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    color: var(--color-1);
-    font-weight: 700;
+    color: #fff;
+    background: #222;
+    font-family: "Helvetica Neue", Arial, sans-serif
   }
 
-  /* layout hackery */
-  body {
-    grid-template-rows: 2fr 3fr;
+  .slide-title {
+    font-size: 3rem;
   }
-  code[data-code-display] {
-    font-size: 0.7rem;
+  .slide-subtitle {
+    font-size: 1.4rem;
+  }
+  .important {
+    color: hsla(196, 88%, 66%, 1);
   }
 </style>
 
-<main id="slide-content">
-  <h1 class="title">Why am I Talking About CSS?</h1> 
+<section id="slide-content">
+  <h1 class="slide-title">
+    Level 2 <br>
+    <span class="slide-subtitle">Flavors &amp; Relationships</span>
+  </h1>
+
   <ul>
-    <li>Expresses Design</li>
-    <li>Levels as I have learned them</li>
+    <li>Classes are bread and butter for styling</li>
+    <li class="important">Useful to make variations</li>
+    <li>
+      Same class can be used on 
+      <strong class="important">many things</strong>
+      preserving or <em class="important">extending</em>
+      markup semantics
+    </li>
   </ul>
-</main>
+</section>
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-05.html" id="prev-slide">prev</a>
-<a href="./slides/level-00a.html" id="next-slide">next</a>
+<a href="./slides/level-01c.html" id="prev-slide">prev</a>
+<a href="./slides/level-02b.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
