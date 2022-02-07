@@ -40,39 +40,17 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  .important {
-    color: hsla(196, 88%, 66%, 1);
+  a {
+    color: #5cccf5;
+    text-decoration: none;
   }
-  .horizontal-list {
-    display: flex;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    list-style: none;
-    background: #000;
+  a:visited {
+    color: #f55c8f;
   }
-  .horizontal-list-item {
-    flex: 1 1 auto;
-    padding: 0.5rem;
-    background-clip: content-box;
-    background: #222;
-  }
-  .horizontal-list-item.important {
-    background-color: hsla(196, 88%, 16%, 1);
-    color: #fff;
+  a:hover {
+    text-decoration: underline;
   }
 
-  .important .important {
-    color: hsla(340, 88%, 66%, 1);
-  }
-  .horizontal-list .horizontal-list {
-    margin: 0;
-    padding: 0.5rem;
-    background: #444;
-    font-size: 1rem;
-  }
-  .horizontal-list .horizontal-list .important {
-    font-weight: bold;
-  }
   /* moved (: */
   body {
     color: #fff;
@@ -92,23 +70,19 @@
 
 <section id="slide-content">
   <h1 class="slide-title">
-    Level 2 <br>
-    <span class="slide-subtitle">Flavors &amp; Relationships</span>
+    Level 3 <br>
+    <span class="slide-subtitle">States &amp; Pseudos</span>
   </h1>
 
   <ul>
-    <li>Separate styling from markup</li>
-  </ul>
-  <ul class="horizontal-list">
-    <li class="horizontal-list-item important">
-      Layer <span class="important">visual</span> semantics
+    <li>Adding a little interactivity and expressiveness</li>
+    <li>
+      We've already seen the 
+      <a href="./slides/level-02b.html">Previous Slide</a>
     </li>
-    <li class="horizontal-list-item">
-      <ul class="horizontal-list">
-        <li class="horizontal-list-item">
-          <span class="important">define what happens</span> when things nest
-        </li>
-      </ul>
+    <li>
+      But haven't seen the 
+      <a href="./slides/level-03b.html">Next Slide</a>
     </li>
   </ul>
 </section>

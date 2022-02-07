@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 2</title>
+  <title>CSS in 13 Levels — Level 4</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,38 +40,37 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  .important {
-    color: #5cccf5;
-  }
-  .horizontal-list {
+ 
+  ul { 
     display: flex;
-    margin: 1rem 0;
-    padding: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    text-align: center;
     list-style: none;
-    background: #000;
   }
-  .horizontal-list-item {
-    flex: 1 1 auto;
-    padding: 0.5rem;
-    background-clip: content-box;
-    background: #222;
-  }
-  .horizontal-list-item.important {
-    background-color: hsla(196, 88%, 16%, 1);
-    color: #fff;
+  ul li { 
+    border: 1px dashed;
+    margin: 0;
+    padding: 1rem;
+    flex: 0 1 50%;
   }
 
-  .important .important {
-    color: #f55c8f;
+  .em-stack { font-size: 0.8em; }
+  .em-biggen { font-size: 2em; }
+
+  .fix-box-model {
+    flex-basis: calc(50% - 2rem - 2px);
   }
-  .horizontal-list .horizontal-list {
-    margin: 0;
-    padding: 0.5rem;
-    background: #444;
-    font-size: 1rem;
-  }
-  .horizontal-list .horizontal-list .important {
-    font-weight: bold;
+
+  code {
+    border: 1px solid #000;
+    background: #333;
+    color: #5cccf5;
+    padding: 0.4em 0.6em;
+    border-radius: 5px;
   }
   /* moved (: */
   body {
@@ -79,6 +78,7 @@
     background: #222;
     font-family: "Helvetica Neue", Arial, sans-serif
   }
+
   .slide-title {
     font-size: 2rem;
     margin: 0;
@@ -92,33 +92,61 @@
 
 <section id="slide-content">
   <h1 class="slide-title">
-    Level 2 <br>
-    <span class="slide-subtitle">Flavors &amp; Relationships</span>
+    Level 4 <br>
+    <span class="slide-subtitle">Functions &amp; Unit Magic</span>
   </h1>
-
   <ul>
-    <li>Separate styling from markup</li>
-  </ul>
-  <ul class="horizontal-list">
-    <li class="horizontal-list-item important">
-      Layer <span class="important">visual</span> semantics
+    <li>The box model can easily troll you</li>
+    <li>when trying to put stuff side-by-side</li>
+    <li class="fix-box-model"><code>calc($width - $2xPadding - $2xBorder)</code> can help!</li>
+    <li class="fix-box-model">🎉</li>
+
+    <li class="em-biggen">
+      <span class="em-stack">
+        Change
+        <span class="em-stack">
+          your
+          <code class="em-stack">
+            text
+            <span class="em-stack">
+              size
+              <code class="em-stack">
+                automatically
+                <span class="em-stack">
+                  based
+                  <span class="em-stack">
+                    on
+                    <span class="em-stack">
+                      how
+                      <span class="em-stack">
+                        deeply
+                        <span class="em-stack">
+                          nested
+                          <span class="em-stack">
+                            it
+                            <span class="em-stack">is</span>
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </code>
+            </span>
+          </code>
+        </span>
+      </span>
     </li>
-    <li class="horizontal-list-item">
-      <ul class="horizontal-list">
-        <li class="horizontal-list-item">
-          <span class="important">define what happens</span> when things nest
-        </li>
-      </ul>
-    </li>
   </ul>
+
 </section>
   
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-02a.html" id="prev-slide">prev</a>
-<a href="./slides/level-03a.html" id="next-slide">next</a>
+<a href="./slides/level-04a.html" id="prev-slide">prev</a>
+<a href="./slides/level-04c.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

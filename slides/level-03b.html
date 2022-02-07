@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 2</title>
+  <title>CSS in 13 Levels — Level 1</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,6 +40,29 @@
 <body>
 
 <style type="text/css" id="slide-style">
+  a {
+    color: #5cccf5;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+  }
+  a:hover { color: #f55c8f; }
+
+  .slide-nav { display: flex; }
+  .slide-nav a {
+    flex: 1 1 50%;
+    padding: 1rem;
+  }
+  a:first-of-type { text-align: right; }
+  a:last-of-type { text-align: left; }
+
+  a:first-of-type::before { content: '👈 ' }
+  a:last-of-type::after { content: ' 👉' }
+
+  a:first-of-type:hover { text-decoration: line-through; }
+  a:last-of-type:hover { text-decoration: underline; }
+  
+  /* moved (: */
   body {
     color: #fff;
     background: #222;
@@ -47,39 +70,39 @@
   }
 
   .slide-title {
-    font-size: 3rem;
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
   }
   .slide-subtitle {
-    font-size: 1.4rem;
-  }
-  .important {
-    color: #5cccf5;
+    font-size: 1.3rem;
+    line-height: 1;
   }
 </style>
 
 <section id="slide-content">
   <h1 class="slide-title">
-    Level 2 <br>
-    <span class="slide-subtitle">Flavors &amp; Relationships</span>
+    Level 3 <br>
+    <span class="slide-subtitle">States &amp; Pseudos</span>
   </h1>
 
   <ul>
-    <li>Classes are bread and butter for styling</li>
-    <li class="important">Useful to make variations</li>
-    <li>
-      Same class can be used on 
-      <strong class="important">many things</strong>
-      preserving or <em class="important">extending</em>
-      markup semantics
-    </li>
+    <li>Styling the context of where something is with pseudoselectors</li>
+    <li>Adding content with pseudoelements</li>
   </ul>
+
+  <nav class="slide-nav">
+    <a class="prev-slide" href="./slides/level-03a.html">Previous Slide</a></li>
+    <a class="next-slide" href="./slides/level-04a.html">Next Slide</a></li>
+  </nav>
 </section>
+  
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-01c.html" id="prev-slide">prev</a>
-<a href="./slides/level-02b.html" id="next-slide">next</a>
+<a href="./slides/level-03a.html" id="prev-slide">prev</a>
+<a href="./slides/level-04a.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

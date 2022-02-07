@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 2</title>
+  <title>CSS in 13 Levels — Level 4</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,45 +40,86 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  .important {
-    color: #5cccf5;
-  }
-  .horizontal-list {
-    display: flex;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    list-style: none;
-    background: #000;
-  }
-  .horizontal-list-item {
-    flex: 1 1 auto;
-    padding: 0.5rem;
-    background-clip: content-box;
-    background: #222;
-  }
-  .horizontal-list-item.important {
-    background-color: hsla(196, 88%, 16%, 1);
-    color: #fff;
+  .blue { color: hsla(196, 88%, 66%, 1); }
+  .pink { color: hsla(340, 88%, 66%, 1); }
+
+  .blue-translucent { background-color: rgba(92, 204, 245, 0.3); }
+  .pink-translucent { background-color: rgba(245, 92, 143, 0.3); }
+  
+  .rainbow {
+    color: #000;
+    background-image: 
+      linear-gradient( 
+        to right, 
+        hsla(196, 88%, 66%, 1), 
+        hsla(340, 88%, 66%, 1)
+      )
+    ;
   }
 
-  .important .important {
-    color: #f55c8f;
+  .stripey {
+    background-image: 
+      linear-gradient( 
+        to bottom right, 
+        #888,
+        #111, 
+        #888,
+        #111,        
+        #888,
+        #111, 
+        #888,
+        #111,  
+        #888,
+        #111, 
+        #888,
+        #111
+      )
+    ;
+    box-shadow: 0 0 2rem 1rem inset #222;
   }
-  .horizontal-list .horizontal-list {
+  li { padding: 0.5rem; }
+  li span { 
+    display: inline-block;
+    padding: 0.5rem; 
+    box-shadow: 0 0 1rem 1px currentColor;
+  }
+  .trip-shadow {
+    text-shadow: 
+      1px 1px 0px hsla(196, 88%, 66%, 0.7),
+      2px -2px 0px hsla(340, 88%, 66%, 0.6),
+      -3px -3px 0px hsla(196, 88%, 66%, 0.5),
+      -4px 4px 0px hsla(340, 88%, 66%, 0.4),
+      5px 5px 0px hsla(196, 88%, 66%, 0.3),
+      6px -6px 0px hsla(340, 88%, 66%, 0.2),
+      -7px -7px 0px hsla(196, 88%, 66%, 0.1)
+    ;  
+  }
+  
+  ul { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
     margin: 0;
-    padding: 0.5rem;
-    background: #444;
-    font-size: 1rem;
+    padding: 0;
+    text-align: center;
+    list-style: none;
   }
-  .horizontal-list .horizontal-list .important {
-    font-weight: bold;
+  ul li { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1rem;
+    flex: 1 1 50%;
   }
+
   /* moved (: */
   body {
     color: #fff;
     background: #222;
     font-family: "Helvetica Neue", Arial, sans-serif
   }
+
   .slide-title {
     font-size: 2rem;
     margin: 0;
@@ -92,33 +133,31 @@
 
 <section id="slide-content">
   <h1 class="slide-title">
-    Level 2 <br>
-    <span class="slide-subtitle">Flavors &amp; Relationships</span>
+    Level 4 <br>
+    <span class="slide-subtitle">Functions &amp; Fanciness</span>
   </h1>
 
   <ul>
-    <li>Separate styling from markup</li>
-  </ul>
-  <ul class="horizontal-list">
-    <li class="horizontal-list-item important">
-      Layer <span class="important">visual</span> semantics
+    <li class="blue">
+      More ways to define 
+      <span class="pink">color</span>
     </li>
-    <li class="horizontal-list-item">
-      <ul class="horizontal-list">
-        <li class="horizontal-list-item">
-          <span class="important">define what happens</span> when things nest
-        </li>
-      </ul>
+    <li class="stripey">
+      <span class="blue-translucent">Set the alpha channel</span> 
+      <span class="pink-translucent">for translucency</span>
     </li>
+    <li><span class="rainbow">Taste the rainbow with gradients</span></li>
+    <li>box- &amp; <span class="trip-shadow">text-shadows</span></li>
   </ul>
+
 </section>
   
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-02a.html" id="prev-slide">prev</a>
-<a href="./slides/level-03a.html" id="next-slide">next</a>
+<a href="./slides/level-03b.html" id="prev-slide">prev</a>
+<a href="./slides/level-04b.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
