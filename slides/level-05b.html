@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 4</title>
+  <title>CSS in 13 Levels — Level 5</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,37 +40,48 @@
 <body>
 
 <style type="text/css" id="slide-style">
- 
-  ul { 
+  
+  .grid-container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1em 1em;
+    grid-template-areas:
+      "tl tr"
+      "bt bt";
+    font-size: 0.8em;
+  }
+
+  .tl { grid-area: tl; }
+  .tr { grid-area: tr; }
+  .bt { grid-area: bt; }
+
+  .grid-container > div {
+    border: 1px solid;
+    padding: 0.5rem;
+    opacity: 0.5;
+  }
+  .full {
+    opacity: 1 !important;
+  }
+
+  /* hacking my own layout */
+  #slide-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    list-style: none;
-  }
-  ul li { 
-    border: 1px dashed;
-    margin: 0;
-    padding: 1rem;
-    flex: 0 1 50%;
+    flex-direction: column;
   }
 
-  .em-stack { font-size: 0.8em; }
-  .em-biggen { font-size: 2em; }
-
-  .fix-box-model {
-    flex-basis: calc(50% - 2rem - 2px);
+  .slide-title {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: auto;
   }
 
-  code {
-    border: 1px solid #000;
-    background: #333;
-    color: #5cccf5;
-    padding: 0.4em 0.6em;
-    border-radius: 5px;
+  #slide-content > .grid-container {
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: 100%;
+    margin-top: 1rem;
   }
   /* moved (: */
   body {
@@ -92,61 +103,54 @@
 
 <section id="slide-content">
   <h1 class="slide-title">
-    Level 4 <br>
-    <span class="slide-subtitle">Functions &amp; Unit Magic</span>
+    Level 5 <br>
+    <span class="slide-subtitle">Grid &amp; Responsiveness</span>
   </h1>
-  <ul>
-    <li>The box model gets really trolly</li>
-    <li>when trying to put stuff side-by-side</li>
-    <li class="fix-box-model"><code>calc($width - $2xPadding - $2xBorder)</code> can help!</li>
-    <li class="fix-box-model">🎉</li>
-
-    <li class="em-biggen">
-      <span class="em-stack">
-        Change
-        <span class="em-stack">
-          your
-          <code class="em-stack">
-            text
-            <span class="em-stack">
-              size
-              <code class="em-stack">
-                automatically
-                <span class="em-stack">
-                  based
-                  <span class="em-stack">
-                    on
-                    <span class="em-stack">
-                      how
-                      <span class="em-stack">
-                        deeply
-                        <span class="em-stack">
-                          nested
-                          <span class="em-stack">
-                            it
-                            <span class="em-stack">is</span>
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                </span>
-              </code>
-            </span>
-          </code>
-        </span>
-      </span>
-    </li>
-  </ul>
-
+  <div class="grid-container">
+    <div class="tl full">
+      Grids all the way down, if you want
+    </div>
+    <div class="tr">
+      <div class="grid-container">
+        <div class="tl"></div>
+        <div class="tr"></div>
+        <div class="bt">
+          <div class="grid-container">
+            <div class="tl"></div>
+            <div class="tr"></div>
+            <div class="bt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bt">
+      <div class="grid-container">
+        <div class="tl">
+          <div class="grid-container">
+            <div class="tl"></div>
+            <div class="tr"></div>
+            <div class="bt"></div>
+          </div>
+        </div>
+        <div class="tr"></div>
+        <div class="bt">
+          <div class="grid-container">
+            <div class="tl"></div>
+            <div class="tr"></div>
+            <div class="bt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
   
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-04a.html" id="prev-slide">prev</a>
-<a href="./slides/level-05a.html" id="next-slide">next</a>
+<a href="./slides/level-05a.html" id="prev-slide">prev</a>
+<a href="./slides/level-05c.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

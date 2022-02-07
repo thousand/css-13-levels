@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en-US" class="un-ready">
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS in 13 Levels — Level 5</title>
+
+  <base href="../">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Highlight.js Sources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
+  <!-- needs to be after to highlight.js to override styles -->
+  <link rel="stylesheet" href="lib/slide-layout-main.css">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+      // grab slide markup and clone its text into the display element
+      let slideContentEl = document.getElementById('slide-content');
+      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
+      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+
+      let slideStyleEl = document.getElementById('slide-style');
+      let slideStyleDisplayEl = document.getElementById('slide-style-display');
+      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
+
+      hljs.configure({
+        cssSelector: '[data-code-display]',
+        ignoreUnescapedHTML: true,
+      });
+      hljs.highlightAll();
+      document.documentElement.classList.remove('un-ready');
+    });
+  </script>
+</head>
+<body>
+
+<style type="text/css" id="slide-style">
+  .kitten-grid {
+    display: grid;
+    margin-top: 0.5rem;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-rows: repeat(auto-fit, 300px);
+    gap: 0.5rem;
+  }
+  
+  .kitten {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    width: 300px;
+    transition: opacity 0.3s linear;
+    perspective: 10rem;
+    perspective-origin: center bottom;
+  }
+  .kitten img { position: absolute; top: 0; left: 0; }
+  .kitten-grid:hover .kitten { opacity: 0.3; }
+  .kitten-grid .kitten:hover { opacity: 1; }
+
+  .kitten .name {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.7);
+    transition: transform 0.3s linear, opacity 0.3s linear;
+    opacity: 0;
+    z-index: 1;
+  }
+  .kitten:hover .name {
+    transform: none;
+    opacity: 1;
+  }
+
+  .kitten-1 .name { transform: translateX(-100%); }
+  .kitten-2 .name { transform: translateY(100%); }
+  .kitten-3 .name { 
+    transform-origin: center bottom;
+    transform: rotateX(90deg); 
+  }
+  .kitten-4 { overflow: visible; }
+  .kitten-4 .name {
+    bottom: 102%;
+    transform: translateY(65%);
+    background: #333;
+    text-align: center;
+    box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.7);
+  }
+
+  .kitten-4 .name::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg);
+    top: calc(100% - 0.5rem);
+    left: calc(50% - 0.5rem);
+    background: #333;
+  }
+
+  /* moved (: */
+  body {
+    color: #fff;
+    background: #222;
+    font-family: "Helvetica Neue", Arial, sans-serif
+  }
+
+  .slide-title {
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+  }
+  .slide-subtitle {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+</style>
+
+<section id="slide-content">
+  <h1 class="slide-title">
+    Level 6 <br>
+    <span class="slide-subtitle">Layering, Transformation &amp; Motion</span>
+  </h1>
+  <div class="kitten-grid">
+    <div class="kitten kitten-1">
+      <div class="name">John, Paul, George, and Ringo</div>
+      <img src="http://placekitten.com/g/300/300?image=2">
+    </div>
+    <div class="kitten kitten-2">
+      <div class="name">Gizmo</div>
+      <img src="http://placekitten.com/g/300/300?image=5">
+    </div>
+    <div class="kitten kitten-3">
+      <div class="name">Pringle</div>
+      <img src="http://placekitten.com/g/300/300?image=7">
+    </div>
+    <div class="kitten kitten-4">
+      <img src="http://placekitten.com/g/300/300?image=13">
+      <div class="name">Vanquish</div>
+    </div>
+    <!-- Kittens via http://placekitten.com, see https://placekitten.com/attribution.html for specific credits -->
+  </div>
+</section>
+  
+
+<div id="slide-fake-body"></div>
+<code id="slide-style-display" class="language-css" data-code-display></code>
+<code id="slide-markup-display" class="language-html" data-code-display></code>
+<a href="./slides/level-05a.html" id="prev-slide">prev</a>
+<a href="./slides/level-05c.html" id="next-slide">next</a>
+
+<!-- remove live-reload code for "prod" -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>
