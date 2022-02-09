@@ -46,7 +46,10 @@
     font-weight: bold;
     display: block;
   }
-  a:hover { color: #f55c8f; }
+  a:hover { 
+    text-decoration: underline;
+    color: #f55c8f; 
+  }
 
   .slide-nav { display: flex; }
   .slide-nav a {
@@ -56,11 +59,8 @@
   a:first-of-type { text-align: right; }
   a:last-of-type { text-align: left; }
 
-  a:first-of-type::before { content: '👈 ' }
-  a:last-of-type::after { content: ' 👉' }
-
-  a:first-of-type:hover { text-decoration: line-through; }
-  a:last-of-type:hover { text-decoration: underline; }
+  a:first-of-type::before { content: '← ' }
+  a:last-of-type::after { content: ' →' }
   
   /* moved (: */
   body {

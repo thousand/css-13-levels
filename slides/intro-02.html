@@ -49,17 +49,31 @@
     --color-1: hsla(196, 88%, 66%, 1); 
     --color-2: hsla(340, 88%, 66%, 1); 
   }
+  #slide-content {
+    display: grid;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: min-content min-content; 
+    gap: 1rem 1rem; 
+    grid-template-areas: 
+      "title title"
+      "left right";
+  }
+
   .title {
     font-size: 4rem;
     font-family: 'Kelly Slab';
     color: var(--color-2);
+    grid-area: title;
   }
+
   ul {
     list-style: none;
     margin: 2rem 0;
     padding: 0;
     color: var(--color-1);
     font-weight: 700;
+    font-size: 2rem;
   }
 
   /* layout hackery */

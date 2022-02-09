@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-US" class="un-ready">
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS in 13 Levels — Level 7</title>
+
+  <base href="../">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Highlight.js Sources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
+  <!-- needs to be after to highlight.js to override styles -->
+  <link rel="stylesheet" href="lib/slide-layout-main.css">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+      // grab slide markup and clone its text into the display element
+      let slideContentEl = document.getElementById('slide-content');
+      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
+      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+
+      let slideStyleEl = document.getElementById('slide-style');
+      let slideStyleDisplayEl = document.getElementById('slide-style-display');
+      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
+
+      hljs.configure({
+        cssSelector: '[data-code-display]',
+        ignoreUnescapedHTML: true,
+      });
+      hljs.highlightAll();
+      document.documentElement.classList.remove('un-ready');
+    });
+  </script>
+</head>
+<body>
+
+<style type="text/css" id="slide-style">
+  :root {
+    --brand-primary: hsla(196, 88%, 66%, 1); 
+    --brand-secondary: hsla(340, 88%, 66%, 1); 
+    --body-text: #fff;
+    --background: #222;
+    --separator: #666;
+  }
+
+  .light {
+    --brand-primary: hsla(196, 88%, 42%, 1); 
+    --brand-secondary: hsla(340, 88%, 42%, 1); 
+    --body-text: #222;
+    --background: #eee;
+    --separator: #aaa;
+  }
+
+  .wrap {
+    padding: 1rem;
+    background: var(--background);
+    color: var(--body-text);
+    background: var(--background);
+  }
+
+  .container {
+    border: 2px solid var(--separator);
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  button {
+    border: 2px solid var(--separator);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--background);
+    color: var(--body-text)
+  }
+
+  button.primary {
+    background: var(--brand-primary);
+    color: var(--background);
+    border-color: var(--brand-primary);
+  }
+  button.danger {
+    background: var(--brand-secondary);
+    color: var(--background);
+    border-color: var(--brand-secondary);
+  }
+
+  div :first-child { margin-top: 0; }
+  div :last-child { margin-bottom: 0; }
+
+  .layout {
+    display: grid;
+    margin-top: 0.5rem;
+    grid-template-columns: repeat(auto-fit, 50%);
+    grid-template-rows: repeat(auto-fit, 300px);
+  }
+  /* moved (: */
+
+  body {
+    color: var(--body-text);
+    background: var(--background);
+    font-family: "Helvetica Neue", Arial, sans-serif
+  }
+
+  .slide-title {
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+  }
+  .slide-subtitle {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+</style>
+
+<section id="slide-content">
+  <h1 class="slide-title">
+    Level 8 <br>
+    <span class="slide-subtitle">Custom Properties</span>
+  </h1>
+  <div class="layout">
+    <div class="wrap dark">
+      <div class="container">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet sapiente consequuntur illum, rem, doloribus hic eaque aut veritatis, provident tempore ipsa blanditiis! Eaque soluta, nihil alias voluptas inventore veritatis quibusdam.</p>
+        <button class="primary">Ok!</button>
+        <button>Maybe?</button>
+        <button class="danger">Nope!</button>
+      </div>
+    </div>
+    <div class="wrap light">
+      <div class="container">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet sapiente consequuntur illum, rem, doloribus hic eaque aut veritatis, provident tempore ipsa blanditiis! Eaque soluta, nihil alias voluptas inventore veritatis quibusdam.</p>
+        <button class="primary">Ok!</button>
+        <button>Maybe?</button>
+        <button class="danger">Nope!</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div id="slide-fake-body"></div>
+<code id="slide-style-display" class="language-css" data-code-display></code>
+<code id="slide-markup-display" class="language-html" data-code-display></code>
+<a href="./slides/level-07a.html" id="prev-slide">prev</a>
+<a href="./slides/level-09a.html" id="next-slide">next</a>
+
+<!-- remove live-reload code for "prod" -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>
