@@ -40,6 +40,7 @@
 <body>
 
 <style type="text/css" id="slide-style">
+  /* Begin Avocado */
   input.avocado {
     margin: 2rem;
     display: block;
@@ -66,10 +67,14 @@
       no-repeat top center/44px 44px radial-gradient(circle closest-side, #572912, #572912 22px, rgba(0, 0, 0, 0) 22px), 
       no-repeat bottom center/64px 64px radial-gradient(circle closest-side, #572912, #572912 32px, rgba(0, 0, 0, 0) 32px);
   }
+  /* End Avocado */
 
+
+  /* Begin Lightsaber */
   .lightsaber {
     margin: 24px;
     height: 24px;
+    display: block;
     position: relative;
   }
   .lightsaber .blade {
@@ -155,11 +160,11 @@
   
   <input type="checkbox" class="avocado" />
 
-  <div class="lightsaber">
+  <label class="lightsaber">
     <input class="switch" type="checkbox" />
     <div class="hilt"></div>
     <div class="blade"></div>
-  </div>
+  </label>
 
   <!-- I cheated a bit in generating the CSS here...more on that later -->
 
