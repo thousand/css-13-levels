@@ -102,6 +102,15 @@ code[data-code-display]::after {
   cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
 
+#next-slide,#prev-slide {
+  transition: color 10s linear 5s;
+}
+
+#next-slide:hover, 
+#prev-slide:hover {
+  color:hsla(340, 88%, 66%, 1);
+} 
+
 /* Hackery to allow `body` tag selector to style #slide-content */
 #slide-fake-body {
   position: absolute;
