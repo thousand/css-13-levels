@@ -65,9 +65,9 @@
         #111, 
         #888,
         #111,        
-        #888,
+        #808,
         #111, 
-        #888,
+        #088,
         #111,  
         #888,
         #111, 
@@ -94,6 +94,16 @@
       -7px -7px 0px hsla(196, 88%, 66%, 0.1)
     ;  
   }
+
+  .blend-screen {
+    mix-blend-mode: screen;
+  }
+  .blend-multply {
+    mix-blend-mode: multiply;
+  }
+  .blend-difference {
+    mix-blend-mode: difference;
+  }
   
   ul { 
     display: flex;
@@ -105,6 +115,7 @@
     padding: 0;
     text-align: center;
     list-style: none;
+    color: #fffa;
   }
   ul li { 
     box-sizing: border-box;
@@ -148,6 +159,11 @@
     </li>
     <li><span class="rainbow">Taste the rainbow with gradients</span></li>
     <li>box- &amp; <span class="trip-shadow">text-shadows</span></li>
+    <li class="stripey">
+      <span class="blue-translucent blend-multiply">Photoshop-ish</span> 
+      <span class="pink-translucent blend-screen">blend modes</span>
+      <span class="rainbow trip-shadow blend-difference">Even some silly ones</span>
+    </li>
   </ul>
 
 </section>

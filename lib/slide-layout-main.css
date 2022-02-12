@@ -1,3 +1,14 @@
+* {
+  cursor: url("./cursor.svg") 12 12, pointer;
+}
+
+::selection,
+.hljs::selection,
+.hljs ::selection {
+  color: #222;
+  background: hsla(340, 88%, 66%, 1);
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -77,6 +88,7 @@ code[data-code-display]::after {
   left: 90%;
   color: transparent;
   text-decoration: none;
+  cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
 #prev-slide {
   display: block;
@@ -87,6 +99,7 @@ code[data-code-display]::after {
   right: 90%;
   color: transparent;
   text-decoration: none;
+  cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
 
 /* Hackery to allow `body` tag selector to style #slide-content */

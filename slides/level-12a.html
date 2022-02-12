@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 7</title>
+  <title>CSS in 13 Levels — Level 12</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,28 +40,28 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  .blag {
-    border: 1px solid var(--brand-secondary);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+  /* Layout hackery */
+  body {
+    grid-template-rows: 2fr 3fr;
   }
-
-  .blag * {
-    box-shadow: 0 0 5px inset var(--brand-primary)
+  code[data-code-display] {
+    font-size: 0.6rem;
   }
-
-  .blag *:first-child {
-    margin-top: 0;
+  #slide-content {
+    display: flex;
+    flex-direction: column;
   }
-  .blag *:last-child {
-    margin-bottom: 0;
+  .slide-title {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+    margin-bottom: 1rem !important;
   }
-
-  .blag .meta {
-    border-top: 1px solid var(--brand-secondary);
-    padding: 0.5rem 0.5rem 0;
-    margin: 0 -0.5rem;
-    font-size: 0.5em;
+  #slide-content > iframe {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 100%;
+    margin-top: 1rem;
   }
 
   /* moved (: */
@@ -100,20 +100,10 @@
 
 <section id="slide-content">
   <h1 class="slide-title">
-    Level 9 <br>
-    <span class="slide-subtitle">"Unpopular" Selectors</span>
+    Level 12 <br>
+    <span class="slide-subtitle">Creating a Library</span>
   </h1>
-  <p>Universal Selector (and an aside about margin)</p>
-  <article class="blag">
-    <h3>Title!</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-    <p>Culpa nemo saepe vitae animi recusandae esse qui nulla pariatur, natus, molestiae soluta sit totam cum, beatae accusamus iure!</p>
-    <p>Delectus, ipsum ducimus.</p>
-    <div class="meta">
-      <p>Timestamp: 2001-09-09T01:46:40</p>
-      <p>Authors: Ramitha Chitloor, Omayeli Arenyeka</p>
-    </div>
-  </article>
+  <iframe src="https://opensource.adobe.com/spectrum-css/actiongroup.html#variants" frameborder="0"></iframe>
 </section>
 
 

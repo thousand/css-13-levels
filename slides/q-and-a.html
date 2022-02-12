@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Intro 5</title>
+  <title>CSS in 13 Levels — Level 13</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -41,51 +41,108 @@
 
 <style type="text/css" id="slide-style">
   @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
-  body {
-    color: #eee;
-    background-color: #222c;
-    text-align: center;
-    font-family: 'Saira';
-    --color-1: hsla(196, 88%, 66%, 1); 
-    --color-2: hsla(340, 88%, 66%, 1); 
-  }
-  .title {
-    font-size: 4rem;
-    font-family: 'Kelly Slab';
-    color: var(--color-2);
-    text-shadow: 0 0.1em 0.1em #0008;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    color: var(--color-1);
-    font-size: 2rem;
-    font-weight: 700;
+  :root {
+    --brand-primary: hsla(196, 88%, 66%, 1); 
+    --brand-secondary: hsla(340, 88%, 66%, 1); 
+    --body-text: #fff;
+    --background: #222a;
+    --separator: #666;
   }
 
-  /* layout hackery */
   body {
-    grid-template-rows: 2fr 3fr;
+    background: var(--background);
+    color: var(--body-text);
+    font-family: 'Saira', Verdana, sans-serif;
+    grid-template-rows: 1fr 3fr;
   }
   code[data-code-display] {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
+  }
+
+  #slide-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #slide-content > * {
+    flex: 1 1 50%;
+  }
+  
+  .slide-title {
+    font-size: 30vmin;
+    font-weight: 900;
+    margin: 0;
+  }
+  .shifty {
+    background-image: url("./lib/bg-pattern-anim.svg");
+    background-size: 500px 500px;
+    background-clip: text;
+    color: transparent;
+    mix-blend-mode: color-dodge;
+  }
+  
+  ul.links {
+    list-style: none;
+    font-size: 1.5vmin;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  ul.links li {
+    display: inline-block;
+    flex: 1 1 33%;
+    margin: 0;
+  }
+  ul.links li.this-prezo {
+    display: block;
+    flex: 0 1 100%;
+    margin: 1rem 0;
+  }
+
+  ul.links a {
+    color: var(--brand-primary); 
+    font-weight: 700;
+    text-decoration: none;
+  }
+  ul.links a::after {
+    content: "\A" attr(href);
+    white-space: pre-line;
+    color: #fff;
+    font-weight: 100;
+
+    font-size: 0.8em;
+  }
+  /* moved (: */
+  .light {
+    --brand-primary: hsla(196, 88%, 42%, 1); 
+    --brand-secondary: hsla(340, 88%, 42%, 1); 
+    --body-text: #222;
+    --background: #eeea;
+    --separator: #aaa;
   }
 </style>
 
-<main id="slide-content">
-  <h1 class="title">Why am I Talking About CSS?</h1> 
-  <ul>
-    <li>Expresses Design in Code</li>
-    <li>Beauty in the Chaos</li>
+<section id="slide-content">
+  <h1 class="slide-title shifty">Q&amp;A</h1>
+  <ul class="links">
+    <li class="this-prezo"><a href="https://github.com/thousand/css-13-levels">Presentation Source</a></li>
+    <li><a href="https://linkedin.com/in/bryanlevay">LinkedIn</a></li>
+    <li><a href="https://twitter.com/thousand">Twitter</a></li>
+    <li><a href="https://codepen.io/thousand">Codepen</a></li>
   </ul>
-</main>
+</section>
+
 
 <div id="slide-fake-body"></div>
 <code id="slide-style-display" class="language-css" data-code-display></code>
 <code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-05.html" id="prev-slide">prev</a>
-<a href="./slides/level-00a.html" id="next-slide">next</a>
+<a href="./slides/level-13a.html" id="prev-slide">prev</a>
+<a href="./index.html" id="next-slide">next</a>
 
 <!-- remove live-reload code for "prod" -->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

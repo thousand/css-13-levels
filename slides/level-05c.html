@@ -85,13 +85,37 @@
     }
   }
 
+  @media screen and (pointer:coarse) {
+    .grid-container > div::before {
+      background: hsla(340, 88%, 66%, 1) !important;
+      color: #222;
+      font-size: 2em !important;
+    }
+
+  }
+
   .tl { grid-area: tl; }
   .tr { grid-area: tr; }
   .bt { grid-area: bt; }
 
   .grid-container > div {
     border: 1px solid;
-    padding: 0.5rem;
+    padding: 0.7rem;
+    position: relative;
+    box-sizing: border-box;
+    min-height: calc(2.5em + 2px);
+  }
+  .grid-container > div::before {
+    content: attr(class);
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    font-size: 0.7em; 
+    font-family: monospace;
+    padding: 0.2em;
+    border-bottom-left-radius: 0.5em;
+    background: #fff;
+    color: #222;
   }
 
 
@@ -138,11 +162,10 @@
     <span class="slide-subtitle">Grid &amp; Responsiveness</span>
   </h1>
   <div class="grid-container">
-    <div class="tl full">
+    <div class="tl">
       Changing the grid around the markup
     </div>
     <div class="tr">
-      <p>Outer grid top right</p>
       <div class="grid-container">
         <div class="tl"></div>
         <div class="tr"></div>
@@ -150,7 +173,6 @@
       </div>
     </div>
     <div class="bt">
-      <p>Outer grid bottom</p>
       <div class="grid-container">
         <div class="tl"></div>
         <div class="tr"></div>

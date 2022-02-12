@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 7</title>
+  <title>CSS in 13 Levels — Level 11</title>
 
   <base href="../">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,28 +40,15 @@
 <body>
 
 <style type="text/css" id="slide-style">
-  .blag {
-    border: 1px solid var(--brand-secondary);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+  /* Layout hackery */
+  body {
+    grid-template-rows: 2fr 3fr;
   }
-
-  .blag * {
-    box-shadow: 0 0 5px inset var(--brand-primary)
+  code[data-code-display] {
+    font-size: 0.6rem;
   }
-
-  .blag *:first-child {
-    margin-top: 0;
-  }
-  .blag *:last-child {
-    margin-bottom: 0;
-  }
-
-  .blag .meta {
-    border-top: 1px solid var(--brand-secondary);
-    padding: 0.5rem 0.5rem 0;
-    margin: 0 -0.5rem;
-    font-size: 0.5em;
+  .slide-title {
+    margin-bottom: 1rem !important;
   }
 
   /* moved (: */
@@ -101,9 +88,13 @@
 <section id="slide-content">
   <h1 class="slide-title">
     Level 11 <br>
-    <span class="slide-subtitle">"Unpopular" Selectors</span>
+    <span class="slide-subtitle">Preprocessors &amp; Creating Leverage</span>
   </h1>
-</section>
+  <iframe height="500" style="width: 100%;" scrolling="no" title="A stylus function for stripes, and some example uses." src="https://codepen.io/thousand/embed/WNXENea?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+    See the Pen <a href="https://codepen.io/thousand/pen/WNXENea">
+    A stylus function for stripes, and some example uses.</a> by Bryan Levay (<a href="https://codepen.io/thousand">@thousand</a>)
+    on <a href="https://codepen.io">CodePen</a>.
+  </iframe></section>
 
 
 <div id="slide-fake-body"></div>
