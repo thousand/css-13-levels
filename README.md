@@ -1,5 +1,5 @@
 # css-13-levels
-Presentation page for my "CSS in 13 Levels" talk
+Presentation page for my "CSS in 13 Levels" talk. View it here: https://thousand.github.io/css-13-levels/
 
 ## How to navigate
 
