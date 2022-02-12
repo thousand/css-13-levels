@@ -80,10 +80,6 @@ code[data-code-display]::after {
 
 /* Next/Prev slide */
 #next-slide {
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 50%;
   right: 0;
   left: 90%;
   color: transparent;
@@ -91,10 +87,6 @@ code[data-code-display]::after {
   cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
 #prev-slide {
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 50%;
   left: 0;
   right: 90%;
   color: transparent;
@@ -102,13 +94,21 @@ code[data-code-display]::after {
   cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
 
-#next-slide,#prev-slide {
-  transition: color 10s linear 5s;
+#next-slide, 
+#prev-slide {
+  top: 0;
+  bottom: 50%;
+  display: block;
+  position: fixed;
+  color: transparent;
+  text-decoration: none;
+  cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
 
 #next-slide:hover, 
 #prev-slide:hover {
   color:hsla(340, 88%, 66%, 1);
+  transition: color 10s linear 5s;
 } 
 
 /* Hackery to allow `body` tag selector to style #slide-content */
