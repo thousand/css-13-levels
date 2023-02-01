@@ -1,191 +1,291 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 7</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 7</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      /* Begin Avocado */
+      input.avocado {
+        margin: 2rem;
+        display: block;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        width: 68px;
+        height: 108px;
+        background: no-repeat top 22px left/32px 54px
+            linear-gradient(
+              101deg,
+              rgba(0, 0, 0, 0) 12px,
+              #572912 12px,
+              #572912
+            ),
+          no-repeat top 22px right/32px 54px
+            linear-gradient(
+              -101deg,
+              rgba(0, 0, 0, 0) 12px,
+              #572912 12px,
+              #572912
+            ),
+          no-repeat top center/44px 44px
+            radial-gradient(
+              circle closest-side,
+              #572912,
+              #572912 22px,
+              rgba(0, 0, 0, 0) 22px
+            ),
+          no-repeat bottom center/64px 64px
+            radial-gradient(
+              circle closest-side,
+              #572912,
+              #572912 32px,
+              rgba(0, 0, 0, 0) 32px
+            );
+      }
+      input.avocado:checked {
+        background: no-repeat bottom 20px center/37px 37px
+            radial-gradient(
+              circle closest-side,
+              #572912,
+              #572912 18.5px,
+              rgba(0, 0, 0, 0) 18.5px
+            ),
+          no-repeat top 22px left 2px / 32px 54px
+            linear-gradient(
+              101deg,
+              rgba(0, 0, 0, 0) 12px,
+              #7db700 12px,
+              #7db700
+            ),
+          no-repeat top 22px right 2px / 32px 54px
+            linear-gradient(
+              -101deg,
+              rgba(0, 0, 0, 0) 12px,
+              #7db700 12px,
+              #7db700
+            ),
+          no-repeat top 2px center/40px 40px
+            radial-gradient(
+              circle closest-side,
+              #7db700,
+              #7db700 20px,
+              rgba(0, 0, 0, 0) 20px
+            ),
+          no-repeat bottom 2px center/60px 60px
+            radial-gradient(
+              circle closest-side,
+              #7db700,
+              #7db700 30px,
+              rgba(0, 0, 0, 0) 30px
+            ),
+          no-repeat top 22px left/32px 54px
+            linear-gradient(
+              101deg,
+              rgba(0, 0, 0, 0) 12px,
+              #572912 12px,
+              #572912
+            ),
+          no-repeat top 22px right/32px 54px
+            linear-gradient(
+              -101deg,
+              rgba(0, 0, 0, 0) 12px,
+              #572912 12px,
+              #572912
+            ),
+          no-repeat top center/44px 44px
+            radial-gradient(
+              circle closest-side,
+              #572912,
+              #572912 22px,
+              rgba(0, 0, 0, 0) 22px
+            ),
+          no-repeat bottom center/64px 64px
+            radial-gradient(
+              circle closest-side,
+              #572912,
+              #572912 32px,
+              rgba(0, 0, 0, 0) 32px
+            );
+      }
+      /* End Avocado */
 
-<style type="text/css" id="slide-style">
-  /* Begin Avocado */
-  input.avocado {
-    margin: 2rem;
-    display: block;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    width: 68px;
-    height: 108px;
-    background: 
-      no-repeat top 22px left/32px 54px linear-gradient(101deg, rgba(0, 0, 0, 0) 12px, #572912 12px, #572912), 
-      no-repeat top 22px right/32px 54px linear-gradient(-101deg, rgba(0, 0, 0, 0) 12px, #572912 12px, #572912), 
-      no-repeat top center/44px 44px radial-gradient(circle closest-side, #572912, #572912 22px, rgba(0, 0, 0, 0) 22px), 
-      no-repeat bottom center/64px 64px radial-gradient(circle closest-side, #572912, #572912 32px, rgba(0, 0, 0, 0) 32px);
-  }
-  input.avocado:checked {
-    background: 
-      no-repeat bottom 20px center/37px 37px radial-gradient(circle closest-side, #572912, #572912 18.5px, rgba(0, 0, 0, 0) 18.5px), 
-      no-repeat top 22px left 2px / 32px 54px linear-gradient(101deg, rgba(0, 0, 0, 0) 12px, #7db700 12px, #7db700), 
-      no-repeat top 22px right 2px / 32px 54px linear-gradient(-101deg, rgba(0, 0, 0, 0) 12px, #7db700 12px, #7db700), 
-      no-repeat top 2px center/40px 40px radial-gradient(circle closest-side, #7db700, #7db700 20px, rgba(0, 0, 0, 0) 20px), 
-      no-repeat bottom 2px center/60px 60px radial-gradient(circle closest-side, #7db700, #7db700 30px, rgba(0, 0, 0, 0) 30px), 
-      no-repeat top 22px left/32px 54px linear-gradient(101deg, rgba(0, 0, 0, 0) 12px, #572912 12px, #572912), 
-      no-repeat top 22px right/32px 54px linear-gradient(-101deg, rgba(0, 0, 0, 0) 12px, #572912 12px, #572912), 
-      no-repeat top center/44px 44px radial-gradient(circle closest-side, #572912, #572912 22px, rgba(0, 0, 0, 0) 22px), 
-      no-repeat bottom center/64px 64px radial-gradient(circle closest-side, #572912, #572912 32px, rgba(0, 0, 0, 0) 32px);
-  }
-  /* End Avocado */
+      /* Begin Lightsaber */
+      .lightsaber {
+        margin: 24px;
+        height: 24px;
+        display: block;
+        position: relative;
+      }
+      .lightsaber .blade {
+        position: absolute;
+        background: linear-gradient(
+          to bottom,
+          rgba(124, 255, 216, 0) 0%,
+          #7cc4ff 45%,
+          #7cc4ff 55%,
+          rgba(124, 255, 216, 0) 100%
+        );
+        left: calc(25% - 12px);
+        width: 0;
+        height: 24px;
+        transition: cubic-bezier(1, 0, 0.75, 1) 0.33s width;
+      }
+      .lightsaber .blade:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 25%;
+        margin: -6px 0;
+        background: radial-gradient(
+          ellipse 50% 50% at 25% center,
+          #7cc4ff 5%,
+          rgba(124, 255, 216, 0) 100%
+        );
+      }
+      .lightsaber .blade:after {
+        content: "";
+        background: radial-gradient(
+          ellipse farthest-side at center left,
+          #7cc4ff 5%,
+          rgba(124, 255, 216, 0) 100%
+        );
+        position: absolute;
+        right: -12px;
+        width: 12px;
+        height: 24px;
+      }
+      .lightsaber .hilt {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        width: 25%;
+        height: 24px;
+        background: linear-gradient(to bottom, #7d7e7d 0%, #0e0e0e 100%);
+      }
+      .lightsaber .hilt:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 12px;
+        height: calc(100% + 6px);
+        margin: -3px 0;
+        background: linear-gradient(to bottom, #7d7e7d 0%, #0e0e0e 100%);
+      }
+      .lightsaber .switch {
+        position: absolute;
+        z-index: 1;
+        top: -9px;
+        left: 16.666666666666668%;
+      }
+      .lightsaber .switch:checked ~ .blade {
+        width: 75%;
+      }
 
+      /* moved (: */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-  /* Begin Lightsaber */
-  .lightsaber {
-    margin: 24px;
-    height: 24px;
-    display: block;
-    position: relative;
-  }
-  .lightsaber .blade {
-    position: absolute;
-    background: linear-gradient(to bottom, rgba(124,255,216,0) 0%, #7cc4ff 45%, #7cc4ff 55%, rgba(124,255,216,0) 100%);
-    left: calc(25% - 12px);
-    width: 0;
-    height: 24px;
-    transition: cubic-bezier(1, 0, 0.75, 1) 0.33s width;
-  }
-  .lightsaber .blade:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 25%;
-    margin: -6px 0;
-    background: radial-gradient(ellipse 50% 50% at 25% center, #7cc4ff 5%, rgba(124,255,216,0) 100%);
-  }
-  .lightsaber .blade:after {
-    content: '';
-    background: radial-gradient(ellipse farthest-side at center left, #7cc4ff 5%, rgba(124,255,216,0) 100%);
-    position: absolute;
-    right: -12px;
-    width: 12px;
-    height: 24px;
-  }
-  .lightsaber .hilt {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    width: 25%;
-    height: 24px;
-    background: linear-gradient(to bottom, #7d7e7d 0%, #0e0e0e 100%);
-  }
-  .lightsaber .hilt:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 12px;
-    height: calc(100% + 6px);
-    margin: -3px 0;
-    background: linear-gradient(to bottom, #7d7e7d 0%, #0e0e0e 100%);
-  }
-  .lightsaber .switch {
-    position: absolute;
-    z-index: 1;
-    top: -9px;
-    left: 16.666666666666668%;
-  }
-  .lightsaber .switch:checked ~ .blade {
-    width: 75%;
-  }
+      a {
+        color: #5cccf5;
+        text-decoration: none;
+      }
 
-  /* moved (: */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-  a {
-    color: #5cccf5;
-    text-decoration: none;
-  }
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 7 <br />
+        <span class="slide-subtitle">CSS Art</span>
+      </h1>
 
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
+      <input type="checkbox" class="avocado" />
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 7 <br>
-    <span class="slide-subtitle">CSS Art</span>
-  </h1>
-  
-  <input type="checkbox" class="avocado" />
+      <label class="lightsaber">
+        <input class="switch" type="checkbox" />
+        <div class="hilt"></div>
+        <div class="blade"></div>
+      </label>
 
-  <label class="lightsaber">
-    <input class="switch" type="checkbox" />
-    <div class="hilt"></div>
-    <div class="blade"></div>
-  </label>
+      <!-- I cheated a bit in generating the CSS here...more on that later -->
 
-  <!-- I cheated a bit in generating the CSS here...more on that later -->
+      <p class="bottom">
+        <a href="https://github.com/cyanharlow/">Diana Smith</a>
+        does this
+        <a href="https://diana-adrianne.com/purecss-character/" target="_blank">
+          way better than I can
+        </a>
+      </p>
+    </section>
 
-  <p class="bottom">
-    <a href="https://github.com/cyanharlow/">Diana Smith</a> 
-    does this 
-    <a href="https://diana-adrianne.com/purecss-character/" target="_blank">
-      way better than I can
-    </a>
-  </p>
-</section>
-  
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-06a.html" id="prev-slide">prev</a>
+    <a href="./slides/level-08a.html" id="next-slide">next</a>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-06a.html" id="prev-slide">prev</a>
-<a href="./slides/level-08a.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

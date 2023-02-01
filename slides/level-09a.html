@@ -1,125 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 9</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 9</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        background: #000;
+        width: fit-content;
+      }
 
-<style type="text/css" id="slide-style">
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    background: #000;
-    width: fit-content;
-  }
+      li {
+        flex: 0 0 auto;
+        padding: 1rem 1.5rem;
+      }
 
-  li { 
-    flex: 0 0 auto;
-    padding: 1rem 1.5rem;
-  }
+      li + li {
+        border-left: 1px solid;
+      }
 
-  li + li {
-    border-left: 1px solid;
-  }
-  
-  /* moved (: */
-  :root {
-    --brand-primary: hsla(196, 88%, 66%, 1); 
-    --brand-secondary: hsla(340, 88%, 66%, 1); 
-    --body-text: #fff;
-    --background: #222;
-    --separator: #666;
-  }
+      /* moved (: */
+      :root {
+        --brand-primary: hsla(196, 88%, 66%, 1);
+        --brand-secondary: hsla(340, 88%, 66%, 1);
+        --body-text: #fff;
+        --background: #222;
+        --separator: #666;
+      }
 
-  .light {
-    --brand-primary: hsla(196, 88%, 42%, 1); 
-    --brand-secondary: hsla(340, 88%, 42%, 1); 
-    --body-text: #222;
-    --background: #eee;
-    --separator: #aaa;
-  }
+      .light {
+        --brand-primary: hsla(196, 88%, 42%, 1);
+        --brand-secondary: hsla(340, 88%, 42%, 1);
+        --body-text: #222;
+        --background: #eee;
+        --separator: #aaa;
+      }
 
-  body {
-    color: var(--body-text);
-    background: var(--background);
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
+      body {
+        color: var(--body-text);
+        background: var(--background);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 9 <br>
-    <span class="slide-subtitle">"Unpopular" Selectors</span>
-  </h1>
-  <p>Adjacent Sibling Combinator</p>
-  <ul>
-    <li>wonderful</li>
-    <li>powerful</li>
-    <li>peaceful</li>
-    <li>old</li>
-    <li>loyal</li>
-    <li>little</li>
-    <li>far</li>
-    <li>evil</li>
-    <li>dry</li>
-  </ul>
-</section>
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 9 <br />
+        <span class="slide-subtitle">"Unpopular" Selectors</span>
+      </h1>
+      <p>Adjacent Sibling Combinator</p>
+      <ul>
+        <li>wonderful</li>
+        <li>powerful</li>
+        <li>peaceful</li>
+        <li>old</li>
+        <li>loyal</li>
+        <li>little</li>
+        <li>far</li>
+        <li>evil</li>
+        <li>dry</li>
+      </ul>
+    </section>
 
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-08a.html" id="prev-slide">prev</a>
+    <a href="./slides/level-09b.html" id="next-slide">next</a>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-08a.html" id="prev-slide">prev</a>
-<a href="./slides/level-09b.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

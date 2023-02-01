@@ -1,196 +1,212 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 5</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 5</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1em 1em;
+        grid-template-areas:
+          "tl tr"
+          "bt bt";
+      }
 
-<style type="text/css" id="slide-style">
+      @media screen and (max-width: 1000px) {
+        html {
+          font-size: 80%;
+        }
+        .grid-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          gap: 0.5rem;
+          grid-template-areas:
+            "tl"
+            "bt"
+            "tr";
+        }
+      }
 
-  .grid-container {  
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1em 1em;
-    grid-template-areas:
-      "tl tr"
-      "bt bt";
-  }
+      @media screen and (max-height: 1000px) {
+        html {
+          font-size: 80%;
+        }
+        .grid-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          gap: 0.5rem;
+          grid-template-areas:
+            "tl"
+            "bt"
+            "tr";
+        }
+        body {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 1rem 1rem;
+          grid-template-areas:
+            "css result"
+            "html result";
+        }
+      }
 
-  @media screen and (max-width: 1000px) {
-    html { font-size: 80%; }
-    .grid-container {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 0.5rem;
-      grid-template-areas:
-        "tl"
-        "bt"
-        "tr";
-    }
-  }
+      @media screen and (pointer: coarse) {
+        .grid-container > div::before {
+          background: hsla(340, 88%, 66%, 1) !important;
+          color: #222;
+          font-size: 2em !important;
+        }
+      }
 
-  @media screen and (max-height: 1000px) {
-    html { font-size: 80%; }
-    .grid-container {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 0.5rem;
-      grid-template-areas:
-        "tl"
-        "bt"
-        "tr";
-    }
-    body {
-      grid-template-columns: 1fr 1fr; 
-      grid-template-rows: 1fr 1fr; 
-      gap: 1rem 1rem; 
-      grid-template-areas: 
-        "css result"
-        "html result";
-    }
-  }
+      .tl {
+        grid-area: tl;
+      }
+      .tr {
+        grid-area: tr;
+      }
+      .bt {
+        grid-area: bt;
+      }
 
-  @media screen and (pointer:coarse) {
-    .grid-container > div::before {
-      background: hsla(340, 88%, 66%, 1) !important;
-      color: #222;
-      font-size: 2em !important;
-    }
+      .grid-container > div {
+        border: 1px solid;
+        padding: 0.7rem;
+        position: relative;
+        box-sizing: border-box;
+        min-height: calc(2.5em + 2px);
+      }
+      .grid-container > div::before {
+        content: attr(class);
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        font-size: 0.7em;
+        font-family: monospace;
+        padding: 0.2em;
+        border-bottom-left-radius: 0.5em;
+        background: #fff;
+        color: #222;
+      }
 
-  }
+      /* hacking my own layout */
+      #slide-content {
+        display: flex;
+        flex-direction: column;
+      }
 
-  .tl { grid-area: tl; }
-  .tr { grid-area: tr; }
-  .bt { grid-area: bt; }
+      .slide-title {
+        flex-shrink: 0;
+        flex-grow: 0;
+        flex-basis: auto;
+      }
 
-  .grid-container > div {
-    border: 1px solid;
-    padding: 0.7rem;
-    position: relative;
-    box-sizing: border-box;
-    min-height: calc(2.5em + 2px);
-  }
-  .grid-container > div::before {
-    content: attr(class);
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    font-size: 0.7em; 
-    font-family: monospace;
-    padding: 0.2em;
-    border-bottom-left-radius: 0.5em;
-    background: #fff;
-    color: #222;
-  }
+      #slide-content > .grid-container {
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: 100%;
+        margin-top: 1rem;
+      }
 
+      /* moved (: */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-  /* hacking my own layout */
-  #slide-content {
-    display: flex;
-    flex-direction: column;
-  }
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-  .slide-title {
-    flex-shrink: 0;
-    flex-grow: 0;
-    flex-basis: auto;
-  }
-
-  #slide-content > .grid-container {
-    flex-shrink: 1;
-    flex-grow: 1;
-    flex-basis: 100%;
-    margin-top: 1rem;
-  }
-
-  /* moved (: */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
-
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
-
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 5 <br>
-    <span class="slide-subtitle">Grid &amp; Responsiveness</span>
-  </h1>
-  <div class="grid-container">
-    <div class="tl">
-      Changing the grid around the markup
-    </div>
-    <div class="tr">
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 5 <br />
+        <span class="slide-subtitle">Grid &amp; Responsiveness</span>
+      </h1>
       <div class="grid-container">
-        <div class="tl"></div>
-        <div class="tr"></div>
-        <div class="bt"></div>
+        <div class="tl">Changing the grid around the markup</div>
+        <div class="tr">
+          <div class="grid-container">
+            <div class="tl"></div>
+            <div class="tr"></div>
+            <div class="bt"></div>
+          </div>
+        </div>
+        <div class="bt">
+          <div class="grid-container">
+            <div class="tl"></div>
+            <div class="tr"></div>
+            <div class="bt"></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="bt">
-      <div class="grid-container">
-        <div class="tl"></div>
-        <div class="tr"></div>
-        <div class="bt"></div>
-      </div>
-    </div>
-  </div>
-</section>
-  
+    </section>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-05b.html" id="prev-slide">prev</a>
-<a href="./slides/level-06a.html" id="next-slide">next</a>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-05b.html" id="prev-slide">prev</a>
+    <a href="./slides/level-06a.html" id="next-slide">next</a>
 
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

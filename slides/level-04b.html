@@ -1,155 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 4</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 4</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-<style type="text/css" id="slide-style">
- 
-  ul { 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        list-style: none;
+      }
+      ul li {
+        border: 1px dashed;
+        margin: 0;
+        padding: 1rem;
+        flex: 0 1 50%;
+      }
 
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    list-style: none;
-  }
-  ul li { 
-    border: 1px dashed;
-    margin: 0;
-    padding: 1rem;
-    flex: 0 1 50%;
-  }
+      .em-stack {
+        font-size: 0.8em;
+      }
+      .em-biggen {
+        font-size: 2em;
+      }
 
-  .em-stack { font-size: 0.8em; }
-  .em-biggen { font-size: 2em; }
+      .fix-box-model {
+        flex-basis: calc(50% - 2rem - 2px);
+      }
 
-  .fix-box-model {
-    flex-basis: calc(50% - 2rem - 2px);
-  }
+      code {
+        border: 1px solid #000;
+        background: #333;
+        color: #5cccf5;
+        padding: 0.4em 0.6em;
+        border-radius: 5px;
+      }
+      /* moved (: */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-  code {
-    border: 1px solid #000;
-    background: #333;
-    color: #5cccf5;
-    padding: 0.4em 0.6em;
-    border-radius: 5px;
-  }
-  /* moved (: */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 4 <br />
+        <span class="slide-subtitle">Functions &amp; Unit Magic</span>
+      </h1>
+      <ul>
+        <li>The box model gets really trolly</li>
+        <li>when trying to put stuff side-by-side</li>
+        <li class="fix-box-model">
+          <code>calc($width - $2xPadding - $2xBorder)</code> can help!
+        </li>
+        <li class="fix-box-model">🎉</li>
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 4 <br>
-    <span class="slide-subtitle">Functions &amp; Unit Magic</span>
-  </h1>
-  <ul>
-    <li>The box model gets really trolly</li>
-    <li>when trying to put stuff side-by-side</li>
-    <li class="fix-box-model"><code>calc($width - $2xPadding - $2xBorder)</code> can help!</li>
-    <li class="fix-box-model">🎉</li>
-
-    <li class="em-biggen">
-      <span class="em-stack">
-        Change
-        <span class="em-stack">
-          your
-          <code class="em-stack">
-            text
+        <li class="em-biggen">
+          <span class="em-stack">
+            Change
             <span class="em-stack">
-              size
+              your
               <code class="em-stack">
-                automatically
+                text
                 <span class="em-stack">
-                  based
-                  <span class="em-stack">
-                    on
+                  size
+                  <code class="em-stack">
+                    automatically
                     <span class="em-stack">
-                      how
+                      based
                       <span class="em-stack">
-                        deeply
+                        on
                         <span class="em-stack">
-                          nested
+                          how
                           <span class="em-stack">
-                            it
-                            <span class="em-stack">is</span>
+                            deeply
+                            <span class="em-stack">
+                              nested
+                              <span class="em-stack">
+                                it
+                                <span class="em-stack">is</span>
+                              </span>
+                            </span>
                           </span>
                         </span>
                       </span>
                     </span>
-                  </span>
+                  </code>
                 </span>
               </code>
             </span>
-          </code>
-        </span>
-      </span>
-    </li>
-  </ul>
+          </span>
+        </li>
+      </ul>
+    </section>
 
-</section>
-  
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-04a.html" id="prev-slide">prev</a>
+    <a href="./slides/level-05a.html" id="next-slide">next</a>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-04a.html" id="prev-slide">prev</a>
-<a href="./slides/level-05a.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

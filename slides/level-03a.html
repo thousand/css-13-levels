@@ -1,101 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 1</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 1</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      a {
+        color: #5cccf5;
+        text-decoration: none;
+      }
+      a:visited {
+        color: #f55c8f;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
-<style type="text/css" id="slide-style">
-  a {
-    color: #5cccf5;
-    text-decoration: none;
-  }
-  a:visited {
-    color: #f55c8f;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+      /* moved (: */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-  /* moved (: */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 3 <br />
+        <span class="slide-subtitle">States &amp; Pseudos</span>
+      </h1>
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 3 <br>
-    <span class="slide-subtitle">States &amp; Pseudos</span>
-  </h1>
+      <ul>
+        <li>Adding a little interactivity and expressiveness</li>
+        <li>
+          We've already seen the
+          <a href="./slides/level-02b.html">Previous Slide</a>
+        </li>
+        <li>
+          But haven't seen the
+          <a href="./slides/level-03b.html">Next Slide</a>
+        </li>
+      </ul>
+    </section>
 
-  <ul>
-    <li>Adding a little interactivity and expressiveness</li>
-    <li>
-      We've already seen the 
-      <a href="./slides/level-02b.html">Previous Slide</a>
-    </li>
-    <li>
-      But haven't seen the 
-      <a href="./slides/level-03b.html">Next Slide</a>
-    </li>
-  </ul>
-</section>
-  
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-02b.html" id="prev-slide">prev</a>
+    <a href="./slides/level-03b.html" id="next-slide">next</a>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-02b.html" id="prev-slide">prev</a>
-<a href="./slides/level-03b.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

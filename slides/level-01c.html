@@ -1,95 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 1</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 1</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+      }
+      li {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        flex: 1 1 auto;
+        border: 1px solid #777;
+      }
+      blockquote {
+        border-left: 3px solid #777;
+        margin: 0.5rem;
+        padding: 1rem;
+        background: #000;
+      }
 
-<style type="text/css" id="slide-style">
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-  }
-  li {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    flex: 1 1 auto;
-    border: 1px solid #777;
-  }
-  blockquote {
-    border-left: 3px solid #777;
-    margin: 0.5rem;
-    padding: 1rem;
-    background: #000;
-  }
+      /* moved code */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+    </style>
 
-  /* moved code */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
-  h1 {
-    font-size: 3rem;
-  }
+    <section id="slide-content">
+      <h1>Level 1 &mdash; Web 1.5</h1>
+      <p>Lots of stuff to do with information architecture and layout</p>
+      <ul>
+        <li>Can get pretty deep in changing layout</li>
+        <li>Adding "presentational semantics"</li>
+      </ul>
+      <blockquote>Adding richness to content</blockquote>
+    </section>
 
-</style>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-01b.html" id="prev-slide">prev</a>
+    <a href="./slides/level-02a.html" id="next-slide">next</a>
 
-<section id="slide-content">
-  <h1>Level 1 &mdash; Web 1.5</h1>
-  <p>Lots of stuff to do with information architecture and layout</p>
-  <ul>
-    <li>Can get pretty deep in changing layout</li>
-    <li>Adding "presentational semantics"</li>
-  </ul>
-  <blockquote>Adding richness to content</blockquote>
-</section>
-  
-
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-01b.html" id="prev-slide">prev</a>
-<a href="./slides/level-02a.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

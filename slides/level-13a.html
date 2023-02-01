@@ -1,133 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 13</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 13</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      @import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap");
+      :root {
+        --brand-primary: hsla(196, 88%, 66%, 1);
+        --brand-secondary: hsla(340, 88%, 66%, 1);
+        --body-text: #fff;
+        --background: #222a;
+        --separator: #666;
+      }
 
-<style type="text/css" id="slide-style">
-  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
-  :root {
-    --brand-primary: hsla(196, 88%, 66%, 1); 
-    --brand-secondary: hsla(340, 88%, 66%, 1); 
-    --body-text: #fff;
-    --background: #222a;
-    --separator: #666;
-  }
+      body {
+        background: var(--background);
+        color: var(--body-text);
+        font-family: "Saira", Verdana, sans-serif;
+        grid-template-rows: 2fr 3fr;
+      }
+      code[data-code-display] {
+        font-size: 0.7rem;
+      }
+      h1,
+      h2 {
+        margin: 0;
+      }
 
-  body {
-    background: var(--background);
-    color: var(--body-text);
-    font-family: 'Saira', Verdana, sans-serif;
-    grid-template-rows: 2fr 3fr;
-  }
-  code[data-code-display] {
-    font-size: 0.7rem;
-  }
-  h1, h2 { margin: 0; }
+      #slide-content {
+        text-align: center;
+      }
+      .slide-title {
+        font-family: "Kelly Slab", Georgia, serif;
+        color: var(--brand-secondary);
+        font-size: 5rem;
+        line-height: 1;
+        text-shadow: 1px 1px 0px hsla(196, 88%, 66%, 0.7),
+          2px 2px 0px hsla(196, 88%, 66%, 0.6),
+          3px 3px 0px hsla(196, 88%, 66%, 0.5),
+          4px 4px 0px hsla(196, 88%, 66%, 0.4),
+          5px 5px 0px hsla(196, 88%, 66%, 0.3),
+          6px 6px 0px hsla(196, 88%, 66%, 0.2),
+          7px 7px 0px hsla(196, 88%, 66%, 0.1);
+      }
+      .slide-subtitle {
+        font-size: 7rem;
+        line-height: 1;
+        font-weight: 900;
+        background-image: url("./lib/bg-pattern-anim.svg");
+        background-size: 500px 500px;
+        background-clip: text;
+        color: transparent;
+        mix-blend-mode: color-dodge;
+      }
 
-  #slide-content {
-    text-align: center;
-  }
-  .slide-title {
-    font-family: 'Kelly Slab', Georgia, serif;
-    color: var(--brand-secondary);
-    font-size: 5rem;
-    line-height: 1;
-    text-shadow: 
-      1px 1px 0px hsla(196, 88%, 66%, 0.7),
-      2px 2px 0px hsla(196, 88%, 66%, 0.6),
-      3px 3px 0px hsla(196, 88%, 66%, 0.5),
-      4px 4px 0px hsla(196, 88%, 66%, 0.4),
-      5px 5px 0px hsla(196, 88%, 66%, 0.3),
-      6px 6px 0px hsla(196, 88%, 66%, 0.2),
-      7px 7px 0px hsla(196, 88%, 66%, 0.1)
-    ;
-  }
-  .slide-subtitle {
-    font-size: 7rem;
-    line-height: 1;
-    font-weight: 900;
-    background-image: url("./lib/bg-pattern-anim.svg");
-    background-size: 500px 500px;
-    background-clip: text;
-    color: transparent;
-    mix-blend-mode: color-dodge;
-  }
-  
-  ul {
-    font-weight: bold;
-    color: var(--brand-primary);
-    font-size: 1.5rem;
-    padding: 0;
-    list-style: none;
-  }
+      ul {
+        font-weight: bold;
+        color: var(--brand-primary);
+        font-size: 1.5rem;
+        padding: 0;
+        list-style: none;
+      }
 
-  /* moved (: */
-  .light {
-    --brand-primary: hsla(196, 88%, 42%, 1); 
-    --brand-secondary: hsla(340, 88%, 42%, 1); 
-    --body-text: #222;
-    --background: #eeea;
-    --separator: #aaa;
-  }
-</style>
+      /* moved (: */
+      .light {
+        --brand-primary: hsla(196, 88%, 42%, 1);
+        --brand-secondary: hsla(340, 88%, 42%, 1);
+        --body-text: #222;
+        --background: #eeea;
+        --separator: #aaa;
+      }
+    </style>
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 13 <br>
-  </h1>
-  <h2 class="slide-subtitle">Zen</h2>
-  <ul>
-    <li>Writing a whole presentation by hand?</li>
-    <li>Finding the utility in quirks</li>
-    <li>Teaching others</li>
-  </ul>
-</section>
+    <section id="slide-content">
+      <h1 class="slide-title">Level 13 <br /></h1>
+      <h2 class="slide-subtitle">Zen</h2>
+      <ul>
+        <li>Writing a whole presentation by hand?</li>
+        <li>Finding the utility in quirks</li>
+        <li>Teaching others</li>
+      </ul>
+    </section>
 
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-12a.html" id="prev-slide">prev</a>
+    <a href="./slides/q-and-a.html" id="next-slide">next</a>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-12a.html" id="prev-slide">prev</a>
-<a href="./slides/q-and-a.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

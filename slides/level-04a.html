@@ -1,182 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 4</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 4</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      .blue {
+        color: hsla(196, 88%, 66%, 1);
+      }
+      .pink {
+        color: hsla(340, 88%, 66%, 1);
+      }
 
-<style type="text/css" id="slide-style">
-  .blue { color: hsla(196, 88%, 66%, 1); }
-  .pink { color: hsla(340, 88%, 66%, 1); }
+      .blue-translucent {
+        background-color: rgba(92, 204, 245, 0.3);
+      }
+      .pink-translucent {
+        background-color: rgba(245, 92, 143, 0.3);
+      }
 
-  .blue-translucent { background-color: rgba(92, 204, 245, 0.3); }
-  .pink-translucent { background-color: rgba(245, 92, 143, 0.3); }
-  
-  .rainbow {
-    color: #000;
-    background-image: 
-      linear-gradient( 
-        to right, 
-        hsla(196, 88%, 66%, 1), 
-        hsla(340, 88%, 66%, 1)
-      )
-    ;
-  }
+      .rainbow {
+        color: #000;
+        background-image: linear-gradient(
+          to right,
+          hsla(196, 88%, 66%, 1),
+          hsla(340, 88%, 66%, 1)
+        );
+      }
 
-  .stripey {
-    background-image: 
-      linear-gradient( 
-        to bottom right, 
-        #888,
-        #111, 
-        #888,
-        #111,        
-        #808,
-        #111, 
-        #088,
-        #111,  
-        #888,
-        #111, 
-        #888,
-        #111
-      )
-    ;
-    box-shadow: 0 0 2rem 1rem inset #222;
-  }
-  li { padding: 0.5rem; }
-  li span { 
-    display: inline-block;
-    padding: 0.5rem; 
-    box-shadow: 0 0 1rem 1px currentColor;
-  }
-  .trip-shadow {
-    text-shadow: 
-      1px 1px 0px hsla(196, 88%, 66%, 0.7),
-      2px -2px 0px hsla(340, 88%, 66%, 0.6),
-      -3px -3px 0px hsla(196, 88%, 66%, 0.5),
-      -4px 4px 0px hsla(340, 88%, 66%, 0.4),
-      5px 5px 0px hsla(196, 88%, 66%, 0.3),
-      6px -6px 0px hsla(340, 88%, 66%, 0.2),
-      -7px -7px 0px hsla(196, 88%, 66%, 0.1)
-    ;  
-  }
+      .stripey {
+        background-image: linear-gradient(
+          to bottom right,
+          #888,
+          #111,
+          #888,
+          #111,
+          #808,
+          #111,
+          #088,
+          #111,
+          #888,
+          #111,
+          #888,
+          #111
+        );
+        box-shadow: 0 0 2rem 1rem inset #222;
+      }
+      li {
+        padding: 0.5rem;
+      }
+      li span {
+        display: inline-block;
+        padding: 0.5rem;
+        box-shadow: 0 0 1rem 1px currentColor;
+      }
+      .trip-shadow {
+        text-shadow: 1px 1px 0px hsla(196, 88%, 66%, 0.7),
+          2px -2px 0px hsla(340, 88%, 66%, 0.6),
+          -3px -3px 0px hsla(196, 88%, 66%, 0.5),
+          -4px 4px 0px hsla(340, 88%, 66%, 0.4),
+          5px 5px 0px hsla(196, 88%, 66%, 0.3),
+          6px -6px 0px hsla(340, 88%, 66%, 0.2),
+          -7px -7px 0px hsla(196, 88%, 66%, 0.1);
+      }
 
-  .blend-screen {
-    mix-blend-mode: screen;
-  }
-  .blend-multply {
-    mix-blend-mode: multiply;
-  }
-  .blend-difference {
-    mix-blend-mode: difference;
-  }
-  
-  ul { 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+      .blend-screen {
+        mix-blend-mode: screen;
+      }
+      .blend-multply {
+        mix-blend-mode: multiply;
+      }
+      .blend-difference {
+        mix-blend-mode: difference;
+      }
 
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    list-style: none;
-    color: #fffa;
-  }
-  ul li { 
-    box-sizing: border-box;
-    margin: 0;
-    padding: 1rem;
-    flex: 1 1 50%;
-  }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
 
-  /* moved (: */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        list-style: none;
+        color: #fffa;
+      }
+      ul li {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 1rem;
+        flex: 1 1 50%;
+      }
 
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
+      /* moved (: */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 4 <br>
-    <span class="slide-subtitle">Functions &amp; Fanciness</span>
-  </h1>
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-  <ul>
-    <li class="blue">
-      More ways to define 
-      <span class="pink">color</span>
-    </li>
-    <li class="stripey">
-      <span class="blue-translucent">Set the alpha channel</span> 
-      <span class="pink-translucent">for translucency</span>
-    </li>
-    <li><span class="rainbow">Taste the rainbow with gradients</span></li>
-    <li>box- &amp; <span class="trip-shadow">text-shadows</span></li>
-    <li class="stripey">
-      <span class="blue-translucent blend-multiply">Photoshop-ish</span> 
-      <span class="pink-translucent blend-screen">blend modes</span>
-      <span class="rainbow trip-shadow blend-difference">Even some silly ones</span>
-    </li>
-  </ul>
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 4 <br />
+        <span class="slide-subtitle">Functions &amp; Fanciness</span>
+      </h1>
 
-</section>
-  
+      <ul>
+        <li class="blue">
+          More ways to define
+          <span class="pink">color</span>
+        </li>
+        <li class="stripey">
+          <span class="blue-translucent">Set the alpha channel</span>
+          <span class="pink-translucent">for translucency</span>
+        </li>
+        <li><span class="rainbow">Taste the rainbow with gradients</span></li>
+        <li>box- &amp; <span class="trip-shadow">text-shadows</span></li>
+        <li class="stripey">
+          <span class="blue-translucent blend-multiply">Photoshop-ish</span>
+          <span class="pink-translucent blend-screen">blend modes</span>
+          <span class="rainbow trip-shadow blend-difference"
+            >Even some silly ones</span
+          >
+        </li>
+      </ul>
+    </section>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-03b.html" id="prev-slide">prev</a>
-<a href="./slides/level-04b.html" id="next-slide">next</a>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-03b.html" id="prev-slide">prev</a>
+    <a href="./slides/level-04b.html" id="next-slide">next</a>
 
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

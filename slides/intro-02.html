@@ -1,113 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Intro 2</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Intro 2</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      @import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap");
+      body {
+        color: #eee;
+        background-color: #222c;
+        text-align: center;
+        font-family: "Saira";
+        --color-1: hsla(196, 88%, 66%, 1);
+        --color-2: hsla(340, 88%, 66%, 1);
+      }
+      #slide-content {
+        display: grid;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content;
+        gap: 1rem 1rem;
+        grid-template-areas:
+          "title title"
+          "left right";
+      }
 
-<style type="text/css" id="slide-style">
-  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
-  body {
-    color: #eee;
-    background-color: #222c;
-    text-align: center;
-    font-family: 'Saira';
-    --color-1: hsla(196, 88%, 66%, 1); 
-    --color-2: hsla(340, 88%, 66%, 1); 
-  }
-  #slide-content {
-    display: grid;
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: min-content min-content; 
-    gap: 1rem 1rem; 
-    grid-template-areas: 
-      "title title"
-      "left right";
-  }
+      .title {
+        font-size: 4rem;
+        font-family: "Kelly Slab";
+        color: var(--color-2);
+        grid-area: title;
+        text-shadow: 0 0.1em 0.1em #0008;
+      }
 
-  .title {
-    font-size: 4rem;
-    font-family: 'Kelly Slab';
-    color: var(--color-2);
-    grid-area: title;
-    text-shadow: 0 0.1em 0.1em #0008;
-  }
+      ul {
+        list-style: none;
+        margin: 2rem 0;
+        padding: 0;
+        color: var(--color-1);
+        font-weight: 700;
+        font-size: 2rem;
+      }
 
-  ul {
-    list-style: none;
-    margin: 2rem 0;
-    padding: 0;
-    color: var(--color-1);
-    font-weight: 700;
-    font-size: 2rem;
-  }
+      /* layout hackery */
+      body {
+        grid-template-rows: 2fr 3fr;
+      }
+      code[data-code-display] {
+        font-size: 0.7rem;
+      }
+    </style>
 
-  /* layout hackery */
-  body {
-    grid-template-rows: 2fr 3fr;
-  }
-  code[data-code-display] {
-    font-size: 0.7rem;
-  }
-</style>
+    <main id="slide-content">
+      <h1 class="title">Before...</h1>
+      <ul>
+        <li>Flagship Infra</li>
+        <li>Messaging</li>
+        <li>Groups</li>
+      </ul>
+      <ul>
+        <li>Healthcare SPA</li>
+        <li>Slicing PSDs for Money</li>
+      </ul>
+    </main>
 
-<main id="slide-content">
-  <h1 class="title">Before...</h1> 
-  <ul>
-    <li>Flagship Infra</li>
-    <li>Messaging</li>
-    <li>Groups</li>
-  </ul>
-  <ul>
-    <li>Healthcare SPA</li>
-    <li>Slicing PSDs for Money</li>
-  </ul>
-  
-</main>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/intro-01.html" id="prev-slide">prev</a>
+    <a href="./slides/intro-03.html" id="next-slide">next</a>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-01.html" id="prev-slide">prev</a>
-<a href="./slides/intro-03.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

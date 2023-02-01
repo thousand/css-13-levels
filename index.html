@@ -1,156 +1,177 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      @import url("https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap");
+      body {
+        color: #eee;
+        background-color: #222c;
+        text-align: center;
+        font-family: "Saira";
+        --color-1: hsla(196, 88%, 66%, 1);
+        --color-2: hsla(340, 88%, 66%, 1);
+      }
+      .title {
+        font-size: 10vmin;
+        font-family: "Kelly Slab";
+        color: var(--color-2);
+        text-shadow: 1px 1px 0px hsla(196, 88%, 66%, 0.7),
+          2px 2px 0px hsla(196, 88%, 66%, 0.6),
+          3px 3px 0px hsla(196, 88%, 66%, 0.5),
+          4px 4px 0px hsla(196, 88%, 66%, 0.4),
+          5px 5px 0px hsla(196, 88%, 66%, 0.3),
+          6px 6px 0px hsla(196, 88%, 66%, 0.2),
+          7px 7px 0px hsla(196, 88%, 66%, 0.1);
+        margin: 0.8em 0;
+      }
+      .presenter {
+        margin: 10vmin 0;
+      }
+      .presenter p {
+        margin: 0;
+      }
+      p.presenter-name {
+        font-size: 5vmin;
+        font-weight: 900;
+        color: var(--color-1);
+        text-shadow: 0 0.1em 0.1em #0008;
+        margin: 0.3em;
+      }
+      p.presenter-meta {
+        font-size: 2vmin;
+        font-weight: 100;
+      }
 
-<style type="text/css" id="slide-style">
-  @import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Saira:wdth,wght@125,100;125,700;125,900&display=swap');
-  body {
-    color: #eee;
-    background-color: #222c;
-    text-align: center;
-    font-family: 'Saira';
-    --color-1: hsla(196, 88%, 66%, 1); 
-    --color-2: hsla(340, 88%, 66%, 1); 
-  }
-  .title {
-    font-size: 10vmin;
-    font-family: 'Kelly Slab';
-    color: var(--color-2);
-    text-shadow: 
-      1px 1px 0px hsla(196, 88%, 66%, 0.7),
-      2px 2px 0px hsla(196, 88%, 66%, 0.6),
-      3px 3px 0px hsla(196, 88%, 66%, 0.5),
-      4px 4px 0px hsla(196, 88%, 66%, 0.4),
-      5px 5px 0px hsla(196, 88%, 66%, 0.3),
-      6px 6px 0px hsla(196, 88%, 66%, 0.2),
-      7px 7px 0px hsla(196, 88%, 66%, 0.1)
-    ;
-    margin: 0.8em 0;
-  }
-  .presenter {
-    margin: 10vmin 0;
-  }
-  .presenter p {
-    margin: 0;
-  }
-  p.presenter-name {
-    font-size: 5vmin;
-    font-weight: 900;
-    color: var(--color-1);
-    text-shadow: 0 0.1em 0.1em #0008;
-    margin: 0.3em;
-  }
-  p.presenter-meta {
-    font-size: 2vmin;
-    font-weight: 100;
-  }
+      ul.links {
+        list-style: none;
+        font-size: 1.5vmin;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        padding: 0;
+      }
+      ul.links li {
+        display: inline-block;
+        flex: 1 1 33%;
+        margin: 0;
+      }
+      ul.links li.this-prezo {
+        display: block;
+        flex: 0 1 100%;
+        margin: 1rem 0;
+      }
 
-  ul.links {
-    list-style: none;
-    font-size: 1.5vmin;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    padding: 0;
-  }
-  ul.links li {
-    display: inline-block;
-    flex: 1 1 33%;
-    margin: 0;
-  }
-  ul.links li.this-prezo {
-    display: block;
-    flex: 0 1 100%;
-    margin: 1rem 0;
-  }
+      ul.links a {
+        color: var(--color-1);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      ul.links a::after {
+        content: "\A"attr(href);
+        white-space: pre-line;
+        color: #fff;
+        font-weight: 100;
 
-  ul.links a {
-    color: var(--color-1); 
-    font-weight: 700;
-    text-decoration: none;
-  }
-  ul.links a::after {
-    content: "\A" attr(href);
-    white-space: pre-line;
-    color: #fff;
-    font-weight: 100;
+        font-size: 0.8em;
+      }
 
-    font-size: 0.8em;
-  }
+      /* layout hackery */
+      body {
+        grid-template-rows: 1fr 3fr;
+      }
+      code[data-code-display] {
+        font-size: 0.5rem;
+      }
+    </style>
 
-  
-  /* layout hackery */
-  body {
-    grid-template-rows: 1fr 3fr;
-  }
-  code[data-code-display] {
-    font-size: 0.5rem;
-  }
-</style>
+    <main id="slide-content">
+      <header>
+        <h1 class="title">CSS in 13 Levels</h1>
+      </header>
 
-<main id="slide-content">
-  <header>
-    <h1 class="title">CSS in 13 Levels</h1>
-  </header>
-  
-  <section class="presenter">
-    <p class="presenter-name">Bryan Levay</p>
-    <p class="presenter-meta">Sr. Staff UI Engineer at LinkedIn</p>
-  </section>
-  
-  <ul class="links">
-    <li class="this-prezo"><a href="https://github.com/thousand/css-13-levels" target="_blank">Presentation Source</a></li>
-    <li><a href="https://linkedin.com/in/bryanlevay" target="_blank">LinkedIn</a></li>
-    <li><a href="https://twitter.com/thousand" target="_blank">Twitter</a></li>
-    <li><a href="https://github.com/thousand" target="_blank">GitHub</a></li>
-  </ul>
-</main>
+      <section class="presenter">
+        <p class="presenter-name">Bryan Levay</p>
+        <p class="presenter-meta">Sr. Staff UI Engineer at LinkedIn</p>
+      </section>
 
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-01.html" id="next-slide">next</a>
+      <ul class="links">
+        <li class="this-prezo">
+          <a href="https://github.com/thousand/css-13-levels" target="_blank"
+            >Presentation Source</a
+          >
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/bryanlevay" target="_blank"
+            >LinkedIn</a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/thousand" target="_blank">Twitter</a>
+        </li>
+        <li>
+          <a href="https://github.com/thousand" target="_blank">GitHub</a>
+        </li>
+      </ul>
+    </main>
 
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/intro-01.html" id="next-slide">next</a>
 
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>

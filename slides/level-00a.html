@@ -1,111 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 0</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 0</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        // grab slide markup and clone its text into the display element
+        let slideContentEl = document.getElementById("slide-content");
+        let slideMarkupDisplayEl = document.getElementById(
+          "slide-markup-display"
+        );
+        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+        let slideStyleEl = document.getElementById("slide-style");
+        let slideStyleDisplayEl = document.getElementById(
+          "slide-style-display"
+        );
+        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
+        hljs.configure({
+          cssSelector: "[data-code-display]",
+          ignoreUnescapedHTML: true,
+        });
+        hljs.highlightAll();
+        document.documentElement.classList.remove("un-ready");
       });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      /* Nothing here! */
+    </style>
 
-<style type="text/css" id="slide-style">
-  /* Nothing here! */
-</style>
+    <section id="slide-content">
+      <h1>Level 0 &mdash; What CSS?</h1>
+      <p>
+        This is some <em>lovely</em> content. It might be bland without styling,
+        but it comes with some nice <strong>structure</strong>.
+      </p>
+      <ul>
+        <li>Good start for a11y</li>
+        <li>Structure gives you a good baseline for styling</li>
+        <li>
+          Defaults make things like
+          <a href="http://example.com">a link</a> stand out
+        </li>
+        <li>Other developers won't judge you when viewing the source</li>
+      </ul>
 
-<section id="slide-content">
-  <h1>Level 0 &mdash; What CSS?</h1>
-  <p>
-    This is some <em>lovely</em> content. It might be bland 
-    without styling, but it comes with some nice <strong>structure</strong>.
-  </p>
-  <ul>
-    <li>Good start for a11y</li>
-    <li>Structure gives you a good baseline for styling</li>
-    <li>Defaults make things like <a href="http://example.com">a link</a> stand out</li>
-    <li>Other developers won't judge you when viewing the source</li>
-  </ul>
+      <form id="myForm" action="#" method="post">
+        <div>
+          <label for="name">Text Input:</label>
+          <input type="text" name="name" id="name" value="" tabindex="1" />
+        </div>
 
-  <form id="myForm" action="#" method="post">
-    <div>
-      <label for="name">Text Input:</label>
-      <input type="text" name="name" id="name" value="" tabindex="1">
-    </div>
+        <div>
+          <label for="radio-choice-1">Choice 1</label>
+          <input
+            type="radio"
+            name="radio-choice"
+            id="radio-choice-1"
+            tabindex="2"
+            value="choice-1"
+          />
 
-    <div>
-      <label for="radio-choice-1">Choice 1</label>
-      <input type="radio" name="radio-choice" id="radio-choice-1" tabindex="2" value="choice-1">
+          <label for="radio-choice-2">Choice 2</label>
+          <input
+            type="radio"
+            name="radio-choice"
+            id="radio-choice-2"
+            tabindex="3"
+            value="choice-2"
+          />
+        </div>
 
-      <label for="radio-choice-2">Choice 2</label>
-      <input type="radio" name="radio-choice" id="radio-choice-2" tabindex="3" value="choice-2">
-    </div>
+        <div>
+          <label for="select-choice">Select Dropdown Choice:</label>
+          <select name="select-choice" id="select-choice">
+            <option value="Choice 1">Choice 1</option>
+            <option value="Choice 2">Choice 2</option>
+            <option value="Choice 3">Choice 3</option>
+          </select>
+        </div>
 
-    <div>
-      <label for="select-choice">Select Dropdown Choice:</label>
-      <select name="select-choice" id="select-choice">
-        <option value="Choice 1">Choice 1</option>
-        <option value="Choice 2">Choice 2</option>
-        <option value="Choice 3">Choice 3</option>
-      </select>
-    </div>
-    
-    <div>
-      <label for="textarea">Textarea:</label>
-      <textarea cols="40" rows="6" name="textarea" id="textarea"></textarea>
-    </div>
-    
-    <div>
-      <label for="checkbox">Checkbox:</label>
-      <input type="checkbox" name="checkbox" checked>
-    </div>
+        <div>
+          <label for="textarea">Textarea:</label>
+          <textarea cols="40" rows="6" name="textarea" id="textarea"></textarea>
+        </div>
 
-    <div>
-      <input type="submit" value="Submit">
-    </div>
+        <div>
+          <label for="checkbox">Checkbox:</label>
+          <input type="checkbox" name="checkbox" checked />
+        </div>
 
-  </form>
+        <div>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </section>
 
-</section>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/intro-06.html" id="prev-slide">prev</a>
+    <a href="./slides/level-01a.html" id="next-slide">next</a>
 
-
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/intro-06.html" id="prev-slide">prev</a>
-<a href="./slides/level-01a.html" id="next-slide">next</a>
-
-<!-- remove live-reload code for "prod" -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-</body>
+    <!-- add live-reload code for "dev" -->
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+  </body>
 </html>
