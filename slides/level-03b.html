@@ -1,111 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US" class="un-ready">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS in 13 Levels — Level 1</title>
 
-<head>
-  <meta charset="utf-8">
-  <title>CSS in 13 Levels — Level 1</title>
+    <base href="../" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
 
-  <base href="../">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    <!-- Highlight.js Sources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/estree.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/html.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/postcss.js"></script>
 
-  <!-- Highlight.js Sources -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <!-- needs to be after to highlight.js to override styles -->
+    <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-  <!-- needs to be after to highlight.js to override styles -->
-  <link rel="stylesheet" href="lib/slide-layout-main.css">
+    <script src="lib/content-inject.js"></script>
+  </head>
+  <body>
+    <style type="text/css" id="slide-style">
+      a {
+        color: #5cccf5;
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+      }
+      a:hover {
+        text-decoration: underline;
+        color: #f55c8f;
+      }
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      // grab slide markup and clone its text into the display element
-      let slideContentEl = document.getElementById('slide-content');
-      let slideMarkupDisplayEl = document.getElementById('slide-markup-display');
-      slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
+      .slide-nav {
+        display: flex;
+      }
+      .slide-nav a {
+        flex: 1 1 50%;
+        padding: 1rem;
+      }
+      a:first-of-type {
+        text-align: right;
+      }
+      a:last-of-type {
+        text-align: left;
+      }
 
-      let slideStyleEl = document.getElementById('slide-style');
-      let slideStyleDisplayEl = document.getElementById('slide-style-display');
-      slideStyleDisplayEl.textContent = slideStyleEl.textContent;
+      a:first-of-type::before {
+        content: "← ";
+      }
+      a:last-of-type::after {
+        content: " →";
+      }
 
-      hljs.configure({
-        cssSelector: '[data-code-display]',
-        ignoreUnescapedHTML: true,
-      });
-      hljs.highlightAll();
-      document.documentElement.classList.remove('un-ready');
-    });
-  </script>
-</head>
-<body>
+      /* moved (: */
+      body {
+        color: #fff;
+        background: #222;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
 
-<style type="text/css" id="slide-style">
-  a {
-    color: #5cccf5;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-  }
-  a:hover { 
-    text-decoration: underline;
-    color: #f55c8f; 
-  }
+      .slide-title {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1;
+      }
+      .slide-subtitle {
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+    </style>
 
-  .slide-nav { display: flex; }
-  .slide-nav a {
-    flex: 1 1 50%;
-    padding: 1rem;
-  }
-  a:first-of-type { text-align: right; }
-  a:last-of-type { text-align: left; }
+    <section id="slide-content">
+      <h1 class="slide-title">
+        Level 3 <br />
+        <span class="slide-subtitle">States &amp; Pseudos</span>
+      </h1>
 
-  a:first-of-type::before { content: '← ' }
-  a:last-of-type::after { content: ' →' }
-  
-  /* moved (: */
-  body {
-    color: #fff;
-    background: #222;
-    font-family: "Helvetica Neue", Arial, sans-serif
-  }
+      <ul>
+        <li>Styling the context of where something is with pseudoselectors</li>
+        <li>Adding content with pseudoelements</li>
+      </ul>
 
-  .slide-title {
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-  }
-  .slide-subtitle {
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-</style>
+      <nav class="slide-nav">
+        <a class="prev-slide" href="./slides/level-03a.html">Previous Slide</a>
+        <a class="next-slide" href="./slides/level-04a.html">Next Slide</a>
+      </nav>
+    </section>
 
-<section id="slide-content">
-  <h1 class="slide-title">
-    Level 3 <br>
-    <span class="slide-subtitle">States &amp; Pseudos</span>
-  </h1>
-
-  <ul>
-    <li>Styling the context of where something is with pseudoselectors</li>
-    <li>Adding content with pseudoelements</li>
-  </ul>
-
-  <nav class="slide-nav">
-    <a class="prev-slide" href="./slides/level-03a.html">Previous Slide</a></li>
-    <a class="next-slide" href="./slides/level-04a.html">Next Slide</a></li>
-  </nav>
-</section>
-  
-
-<div id="slide-fake-body"></div>
-<code id="slide-style-display" class="language-css" data-code-display></code>
-<code id="slide-markup-display" class="language-html" data-code-display></code>
-<a href="./slides/level-03a.html" id="prev-slide">prev</a>
-<a href="./slides/level-04a.html" id="next-slide">next</a>
+    <div id="slide-fake-body"></div>
+    <code
+      id="slide-style-display"
+      class="language-css"
+      data-code-display
+    ></code>
+    <code
+      id="slide-markup-display"
+      class="language-html"
+      data-code-display
+    ></code>
+    <a href="./slides/level-03a.html" id="prev-slide">prev</a>
+    <a href="./slides/level-04a.html" id="next-slide">next</a>
 
     <!-- add live-reload code for "dev" -->
     <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
-
-</body>
+  </body>
 </html>

@@ -15,33 +15,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/estree.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/html.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/postcss.js"></script>
 
     <!-- needs to be after to highlight.js to override styles -->
     <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-    <script>
-      document.addEventListener("DOMContentLoaded", (e) => {
-        // grab slide markup and clone its text into the display element
-        let slideContentEl = document.getElementById("slide-content");
-        let slideMarkupDisplayEl = document.getElementById(
-          "slide-markup-display"
-        );
-        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
-
-        let slideStyleEl = document.getElementById("slide-style");
-        let slideStyleDisplayEl = document.getElementById(
-          "slide-style-display"
-        );
-        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-        hljs.configure({
-          cssSelector: "[data-code-display]",
-          ignoreUnescapedHTML: true,
-        });
-        hljs.highlightAll();
-        document.documentElement.classList.remove("un-ready");
-      });
-    </script>
+    <script src="lib/content-inject.js"></script>
   </head>
   <body>
     <style type="text/css" id="slide-style">
@@ -52,7 +34,7 @@
         gap: 1em 1em;
         grid-template-areas:
           "tl tr"
-          "bt bt";
+          "br br";
       }
 
       @media screen and (max-width: 1000px) {
@@ -65,7 +47,7 @@
           gap: 0.5rem;
           grid-template-areas:
             "tl"
-            "bt"
+            "br"
             "tr";
         }
       }
@@ -80,7 +62,7 @@
           gap: 0.5rem;
           grid-template-areas:
             "tl"
-            "bt"
+            "br"
             "tr";
         }
         body {
@@ -95,20 +77,21 @@
 
       @media screen and (pointer: coarse) {
         .grid-container > div::before {
-          background: hsla(340, 88%, 66%, 1) !important;
-          color: #222;
           font-size: 2em !important;
         }
       }
 
       .tl {
         grid-area: tl;
+        color: hsla(340, 88%, 66%, 1);
       }
       .tr {
         grid-area: tr;
+        color: hsla(220, 88%, 66%, 1);
       }
-      .bt {
-        grid-area: bt;
+      .br {
+        grid-area: br;
+        color: hsla(20, 88%, 66%, 1);
       }
 
       .grid-container > div {
@@ -125,10 +108,9 @@
         right: -1px;
         font-size: 0.7em;
         font-family: monospace;
-        padding: 0.2em;
+        padding: 0.2em 0.3em;
         border-bottom-left-radius: 0.5em;
-        background: #fff;
-        color: #222;
+        border: 1px dotted;
       }
 
       /* hacking my own layout */
@@ -179,14 +161,14 @@
           <div class="grid-container">
             <div class="tl"></div>
             <div class="tr"></div>
-            <div class="bt"></div>
+            <div class="br"></div>
           </div>
         </div>
-        <div class="bt">
+        <div class="br">
           <div class="grid-container">
             <div class="tl"></div>
             <div class="tr"></div>
-            <div class="bt"></div>
+            <div class="br"></div>
           </div>
         </div>
       </div>

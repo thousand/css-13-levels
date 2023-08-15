@@ -61,9 +61,17 @@ code[data-code-display]::after {
   grid-area: css;
 }
 #slide-style-display::before {
+  display: block;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-bottom: 0.5em;
   content: "<style type=\"text/css\" id=\"slide-style\">"
 }
 #slide-style-display::after {
+  display: block;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 0.5em;
   content: "</style>"
 }
 
@@ -71,29 +79,22 @@ code[data-code-display]::after {
   grid-area: html;
 } 
 #slide-markup-display::before {
+  display: block;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-bottom: 0.5em;
   content: "<main id=\"slide-content\">"
 }
 #slide-markup-display::after {
+  display: block;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 0.5em;
   content: "</main>"
 }
 /* END Code previews */
 
 /* Next/Prev slide */
-#next-slide {
-  right: 0;
-  left: 90%;
-  color: transparent;
-  text-decoration: none;
-  cursor: url("./cursor-inv.svg") 12 12, pointer;
-}
-#prev-slide {
-  left: 0;
-  right: 90%;
-  color: transparent;
-  text-decoration: none;
-  cursor: url("./cursor-inv.svg") 12 12, pointer;
-}
-
 #next-slide, 
 #prev-slide {
   top: 0;
@@ -104,6 +105,18 @@ code[data-code-display]::after {
   text-decoration: none;
   cursor: url("./cursor-inv.svg") 12 12, pointer;
 }
+
+#next-slide {
+  right: 0;
+  left: 90%;
+  cursor: url("./cursor-inv-flip.svg") 55 12, pointer;
+}
+#prev-slide {
+  left: 0;
+  right: 90%;
+  cursor: url("./cursor-inv.svg") 12 12, pointer;
+}
+
 
 #next-slide:hover, 
 #prev-slide:hover {

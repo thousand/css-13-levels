@@ -15,33 +15,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/eighties.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/standalone.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/estree.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/html.js"></script>
+    <script src="https://unpkg.com/prettier@3.0.2/plugins/postcss.js"></script>
 
     <!-- needs to be after to highlight.js to override styles -->
     <link rel="stylesheet" href="lib/slide-layout-main.css" />
 
-    <script>
-      document.addEventListener("DOMContentLoaded", (e) => {
-        // grab slide markup and clone its text into the display element
-        let slideContentEl = document.getElementById("slide-content");
-        let slideMarkupDisplayEl = document.getElementById(
-          "slide-markup-display"
-        );
-        slideMarkupDisplayEl.textContent = slideContentEl.innerHTML;
-
-        let slideStyleEl = document.getElementById("slide-style");
-        let slideStyleDisplayEl = document.getElementById(
-          "slide-style-display"
-        );
-        slideStyleDisplayEl.textContent = slideStyleEl.textContent;
-
-        hljs.configure({
-          cssSelector: "[data-code-display]",
-          ignoreUnescapedHTML: true,
-        });
-        hljs.highlightAll();
-        document.documentElement.classList.remove("un-ready");
-      });
-    </script>
+    <script src="lib/content-inject.js"></script>
   </head>
   <body>
     <style type="text/css" id="slide-style">
@@ -56,6 +38,7 @@
       }
       .title {
         font-size: 4rem;
+        margin: 0.3em auto;
         font-family: "Kelly Slab";
         color: var(--color-2);
         text-shadow: 0 0.1em 0.1em #0008;
@@ -83,6 +66,7 @@
       <ul>
         <li>Expresses Design in Code</li>
         <li>Beauty in the Chaos</li>
+        <li>Satisfying to Develop</li>
       </ul>
     </main>
 
