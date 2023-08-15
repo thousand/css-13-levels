@@ -36,7 +36,7 @@
         --color-2: hsla(340, 88%, 66%, 1);
       }
       .title {
-        font-size: 10vmin;
+        font-size: 13vmin;
         font-family: "Kelly Slab";
         color: var(--color-2);
         text-shadow: 1px 1px 0px hsla(196, 88%, 66%, 0.7),
@@ -46,20 +46,19 @@
           5px 5px 0px hsla(196, 88%, 66%, 0.3),
           6px 6px 0px hsla(196, 88%, 66%, 0.2),
           7px 7px 0px hsla(196, 88%, 66%, 0.1);
-        margin: 0.8em 0;
+        margin: 0.2em 0 0.9em;
       }
       .presenter {
-        margin: 10vmin 0;
+        margin: 5vmin 0;
       }
       .presenter p {
         margin: 0;
       }
       p.presenter-name {
-        font-size: 5vmin;
+        font-size: 4vmin;
         font-weight: 900;
         color: var(--color-1);
         text-shadow: 0 0.1em 0.1em #0008;
-        margin: 0.3em;
       }
       p.presenter-meta {
         font-size: 2vmin;
@@ -68,7 +67,7 @@
 
       ul.links {
         list-style: none;
-        font-size: 1.5vmin;
+        font-size: 2vmin;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -96,9 +95,38 @@
         content: "\A"attr(href);
         white-space: pre-line;
         color: #fff;
-        font-weight: 100;
+        font-weight: 200;
 
         font-size: 0.8em;
+      }
+
+      ul.links a:hover {
+        animation: 11s linear infinite colorshift;
+      }
+
+      ul.links a:hover::after {
+        animation: 7s linear infinite reverse colorshift;
+      }
+
+      @keyframes colorshift {
+        from {
+          color: hsla(196, 88%, 66%, 1);
+        }
+        20% {
+          color: hsla(268, 88%, 66%, 1);
+        }
+        40% {
+          color: hsla(340, 88%, 66%, 1);
+        }
+        60% {
+          color: hsla(52, 88%, 66%, 1);
+        }
+        80% {
+          color: hsla(124, 88%, 66%, 1);
+        }
+        to {
+          color: hsla(196, 88%, 66%, 1);
+        }
       }
 
       /* layout hackery */
@@ -149,8 +177,5 @@
       data-code-display
     ></code>
     <a href="./slides/intro-02.html" id="next-slide">next</a>
-
-    <!-- add live-reload code for "dev" -->
-    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
   </body>
 </html>
